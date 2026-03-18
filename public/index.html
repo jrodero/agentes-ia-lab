@@ -1,0 +1,68 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guay Life</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-badge">Guay Life</div>
+      <h1>Tu primer paso para emigrar con más claridad</h1>
+      <p class="hero-text">
+        Te ayudamos a ordenar tu idea de emigrar, estudiar o trabajar en el exterior según tu perfil, tus objetivos y tu situación real.
+      </p>
+
+      <div class="hero-points">
+        <span>Orientación personalizada</span>
+        <span>Asesoría 1 a 1</span>
+        <span>Desde 29€</span>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <section class="info-card">
+        <h2>Qué puedes resolver aquí</h2>
+        <ul>
+          <li>Entender qué país o vía puede tener más sentido para ti</li>
+          <li>Evitar errores antes de gastar tiempo y dinero</li>
+          <li>Ordenar tus próximos pasos según tu perfil</li>
+          <li>Solicitar una asesoría personalizada si quieres avanzar</li>
+        </ul>
+
+        <div class="price-box">
+          <p class="price-label">Asesoría personalizada 1 a 1</p>
+          <p class="price-value">29€</p>
+          <p class="price-desc">30 minutos por videollamada</p>
+        </div>
+      </section>
+
+      <section class="chat-card">
+        <div class="chat-header">
+          <div>
+            <h2>Habla con el asistente</h2>
+            <p>Responde unas preguntas y recibe orientación inicial.</p>
+          </div>
+          <div class="status-dot"></div>
+        </div>
+
+        <div id="chat" class="chat"></div>
+
+        <form id="chat-form" class="chat-form">
+          <input
+            id="message-input"
+            type="text"
+            placeholder="Escribe tu mensaje..."
+            autocomplete="off"
+          />
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
