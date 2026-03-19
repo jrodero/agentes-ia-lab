@@ -1,0 +1,2 @@
+mkdir -p .codex
+nano .codex/config.toml

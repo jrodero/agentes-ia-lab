@@ -12,6 +12,7 @@ import {
   crearEstadoLead,
 } from "./bot-core.js";
 import { guardarLead } from "./leads.js";
+import { buildMigrationResponseRequest, formatMigrationReply } from "./migration-agent.js";
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -61,12 +62,15 @@ app.post("/api/chat", async (req, res) => {
   });
 
   try {
-    const response = await client.responses.create({
-      model: "gpt-4.1-mini",
-      input: sesion.historial,
-    });
+    const response = await client.responses.create(
+      buildMigrationResponseRequest(sesion.historial, {
+        enableOfficialSearch: true,
+      })
+    );
 
-    const texto = response.output_text || "No pude responder bien.";
+    const texto = formatMigrationReply(response, {
+      includeSources: false,
+    });
 
     sesion.historial.push({
       role: "assistant",

@@ -11,6 +11,7 @@ import {
   obtenerConversacionUtil,
 } from "./bot-core.js";
 import { cargarLeads, guardarLead } from "./leads.js";
+import { buildMigrationResponseRequest, formatMigrationReply } from "./migration-agent.js";
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -69,12 +70,15 @@ async function preguntar() {
     });
 
     try {
-      const response = await client.responses.create({
-        model: "gpt-4.1-mini",
-        input: sesion.historial,
-      });
+      const response = await client.responses.create(
+        buildMigrationResponseRequest(sesion.historial, {
+          enableOfficialSearch: true,
+        })
+      );
 
-      const texto = response.output_text || "No pude responder bien.";
+      const texto = formatMigrationReply(response, {
+        includeSources: false,
+      });
 
       console.log("\nBot:", texto, "\n");
 
