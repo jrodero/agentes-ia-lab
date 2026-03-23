@@ -111,15 +111,53 @@ img { display: block; max-width: 100%; }
   overflow: hidden;
 }
 
-/* Textura sutil de fondo */
+/* Foto de fondo */
+.hero-bg-photo {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center 35%;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Overlay de gradiente sobre la foto */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 50% at 20% 50%, rgba(61,79,99,.6) 0%, transparent 70%),
+    radial-gradient(ellipse 100% 60% at 50% 100%, rgba(26,35,48,.95) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 40% at 50% 0%, rgba(26,35,48,.85) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 20% 50%, rgba(61,79,99,.5) 0%, transparent 70%),
     radial-gradient(ellipse 40% 60% at 80% 30%, rgba(200,169,110,.06) 0%, transparent 60%);
   pointer-events: none;
+  z-index: 1;
+}
+
+/* Globo terráqueo decorativo */
+.hero-globe-decor {
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  transform: translateY(-54%);
+  width: min(540px, 52vw);
+  height: min(540px, 52vw);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  animation: globe-appear 1.8s ease-out 0.4s forwards;
+}
+
+@keyframes globe-appear {
+  to { opacity: 1; }
+}
+
+.hero-globe-decor svg {
+  width: 100%;
+  height: 100%;
 }
 
 .hero-center {
@@ -131,6 +169,7 @@ img { display: block; max-width: 100%; }
   text-align: center;
   position: relative;
   gap: 0;
+  z-index: 3;
 }
 
 .hero-logo-wrap {
@@ -194,6 +233,7 @@ img { display: block; max-width: 100%; }
   grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid rgba(255,255,255,.06);
   position: relative;
+  z-index: 3;
 }
 
 .hero-strip-item {
@@ -828,6 +868,7 @@ img { display: block; max-width: 100%; }
    RESPONSIVE
 ══════════════════════════════════════════ */
 @media (max-width: 900px) {
+  .hero-globe-decor { width: min(360px, 55vw); height: min(360px, 55vw); right: -60px; opacity: 0.6; }
   .site-nav { padding: 0 24px; }
   .nav-links { display: none; }
   .hero-strip { grid-template-columns: 1fr 1fr; }
@@ -842,6 +883,7 @@ img { display: block; max-width: 100%; }
 }
 
 @media (max-width: 600px) {
+  .hero-globe-decor { display: none; }
   .hero-center { padding: 90px 24px 48px; }
   .hero-headline { font-size: 4.2rem; }
   .hero-strip { grid-template-columns: 1fr 1fr; }
