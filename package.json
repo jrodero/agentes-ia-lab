@@ -5,12 +5,14 @@
   "description": "Laboratorio de agentes IA y automatizaciones",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "node tests/health.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "openai": "^6.31.0"

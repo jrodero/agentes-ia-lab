@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guay Life Routes Community Beta</title>
+  <meta
+    name="description"
+    content="Web app para migrantes y backpackers con login, comunidad, rutas prácticas, checklist y bitácora personal."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="auth-overlay" id="auth-overlay">
+    <div class="auth-card">
+      <div class="auth-copy">
+        <span class="eyebrow">Community beta</span>
+        <h1>La app web para migrantes y backpackers que quieren entrar con más orden y menos ruido.</h1>
+        <p>
+          Esta versión combina guía práctica, estructura tipo foro, rutas iniciales, checklist y bitácora. El acceso
+          es con login simple para probar la experiencia cerrada de comunidad.
+        </p>
+
+        <div class="auth-points">
+          <span>Login local</span>
+          <span>Comunidad</span>
+          <span>Rutas</span>
+          <span>Bitácora</span>
+        </div>
+      </div>
+
+      <form class="auth-form" id="auth-form">
+        <label>
+          Nombre
+          <input type="text" name="name" maxlength="40" placeholder="Ejemplo: Juan Pérez" autocomplete="name" />
+        </label>
+
+        <label>
+          Nombre de usuario
+          <input
+            type="text"
+            name="username"
+            maxlength="40"
+            placeholder="Se completa desde tu nombre"
+            value=""
+            autocomplete="username"
+          />
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" maxlength="80" placeholder="tu@email.com" required />
+        </label>
+
+        <label>
+          Contraseña
+          <div class="password-field">
+            <input
+              type="password"
+              name="password"
+              minlength="8"
+              maxlength="80"
+              placeholder="Mínimo 8 caracteres"
+              required
+            />
+            <button
+              class="password-toggle"
+              type="button"
+              data-toggle-password
+              aria-label="Mostrar contraseña"
+              aria-pressed="false"
+            >
+              👁️
+            </button>
+          </div>
+        </label>
+
+        <label>
+          Confirmar contraseña
+          <div class="password-field">
+            <input
+              type="password"
+              name="confirmPassword"
+              minlength="8"
+              maxlength="80"
+              placeholder="Repite tu contraseña"
+            />
+            <button
+              class="password-toggle"
+              type="button"
+              data-toggle-password
+              aria-label="Mostrar confirmación de contraseña"
+              aria-pressed="false"
+            >
+              👁️
+            </button>
+          </div>
+        </label>
+
+        <label>
+          País de origen
+          <input type="text" name="origin" maxlength="40" placeholder="Argentina, España, Chile..." />
+        </label>
+
+        <label>
+          En qué etapa estás
+          <select name="stage">
+            <option value="explorando">Explorando opciones</option>
+            <option value="preparando">Preparando salida</option>
+            <option value="aterrizando">Aterrizando en destino</option>
+            <option value="ya-viviendo">Ya viviendo fuera</option>
+          </select>
+        </label>
+
+        <div class="auth-actions">
+          <button class="primary-btn wide" type="submit" name="authMode" value="register">Crear cuenta</button>
+          <button class="secondary-btn wide" type="submit" name="authMode" value="login">Entrar</button>
+        </div>
+        <button class="auth-link-button" id="forgot-password-toggle" type="button">
+          ¿Olvidaste tu contraseña?
+        </button>
+        <p class="auth-feedback" id="auth-feedback" aria-live="polite"></p>
+        <div class="auth-recovery is-hidden" id="auth-recovery">
+          <p class="auth-note">Escribe tu email para generar un token temporal de recuperación.</p>
+
+          <label>
+            Email para recuperar
+            <input type="email" name="recoveryEmail" maxlength="80" placeholder="tu@email.com" />
+          </label>
+
+          <button class="secondary-btn wide" id="forgot-password-button" type="button">Generar token temporal</button>
+
+          <p class="auth-feedback auth-token" id="recovery-token-output" aria-live="polite"></p>
+
+          <label>
+            Token de recuperación
+            <input type="text" name="resetToken" maxlength="80" placeholder="Pega aquí el token" />
+          </label>
+
+          <label>
+            Nueva contraseña
+            <div class="password-field">
+              <input
+                type="password"
+                name="resetPassword"
+                minlength="8"
+                maxlength="80"
+                placeholder="Mínimo 8 caracteres"
+              />
+              <button
+                class="password-toggle"
+                type="button"
+                data-toggle-password
+                aria-label="Mostrar nueva contraseña"
+                aria-pressed="false"
+              >
+                👁️
+              </button>
+            </div>
+          </label>
+
+          <label>
+            Confirmar nueva contraseña
+            <div class="password-field">
+              <input
+                type="password"
+                name="resetPasswordConfirm"
+                minlength="8"
+                maxlength="80"
+                placeholder="Repite tu nueva contraseña"
+              />
+              <button
+                class="password-toggle"
+                type="button"
+                data-toggle-password
+                aria-label="Mostrar confirmación de nueva contraseña"
+                aria-pressed="false"
+              >
+                👁️
+              </button>
+            </div>
+          </label>
+
+          <button class="primary-btn wide" id="reset-password-button" type="button">Actualizar contraseña</button>
+        </div>
+        <p class="auth-note">Demo local: tu perfil y tu actividad se guardan en este servidor local.</p>
+      </form>
+    </div>
+  </div>
+
+  <div class="app-shell is-hidden" id="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard" aria-label="Guay Life Routes">
+        <img src="../images/logo.png" alt="Guay Life" width="40" height="40" />
+        <div>
+          <span class="brand-kicker">Guay Life</span>
+          <strong>Routes Community</strong>
+        </div>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Navegación de la app">
+        <button class="nav-item is-active" data-view="dashboard" type="button">Inicio</button>
+        <button class="nav-item" data-view="community" type="button">Comunidad</button>
+        <button class="nav-item" data-view="routes" type="button">Explorar</button>
+        <button class="nav-item" data-view="diary" type="button">Bitácora</button>
+        <button class="nav-item" data-view="profile" type="button">Perfil</button>
+      </nav>
+
+      <div class="sidebar-card">
+        <span class="section-tag">Idea central</span>
+        <p>Entrar, ordenar, preguntar, registrar y avanzar sin perderte entre grupos, rumores y apps sueltas.</p>
+      </div>
+    </aside>
+
+    <main class="app-main">
+      <header class="topbar">
+        <div>
+          <span class="section-tag" id="topbar-tag">Inicio</span>
+          <h2 id="topbar-title">Tu panel de aterrizaje</h2>
+        </div>
+
+        <div class="topbar-user">
+          <div class="user-pill">
+            <strong id="user-name">Invitado</strong>
+            <span id="user-stage">Explorando</span>
+          </div>
+          <a class="ghost-link" href="/">Sitio actual</a>
+          <button class="secondary-btn small" id="logout-button" type="button">Salir</button>
+        </div>
+      </header>
+
+      <section class="view is-active" data-panel="dashboard">
+        <div class="hero-board">
+          <div class="hero-copy">
+            <span class="eyebrow">Panel personal</span>
+            <h1>Un lugar para entender tu camino, hablar con otros y no improvisar cada paso.</h1>
+            <p id="welcome-copy">
+              Aquí verás tu radar inicial, las rutas más útiles y el pulso de la comunidad para Australia, Nueva
+              Zelanda y España.
+            </p>
+
+            <div class="hero-actions">
+              <button class="primary-btn" data-jump-view="community" type="button">Entrar al foro</button>
+              <button class="secondary-btn" data-jump-view="routes" type="button">Ver rutas</button>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <article class="metric-card">
+              <span class="metric-value">3</span>
+              <span class="metric-label">países base</span>
+            </article>
+            <article class="metric-card">
+              <span class="metric-value" id="community-count">0</span>
+              <span class="metric-label">hilos en comunidad</span>
+            </article>
+            <article class="metric-card">
+              <span class="metric-value" id="saved-count">0</span>
+              <span class="metric-label">rutas guardadas</span>
+            </article>
+            <article class="metric-card">
+              <span class="metric-value" id="diary-count">0</span>
+              <span class="metric-label">entradas en bitácora</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel-card">
+            <div class="panel-head">
+              <span class="section-tag">Radar de encaje</span>
+              <strong>Lectura inicial</strong>
+            </div>
+
+            <form class="stack-form" id="fit-form">
+              <label>
+                Objetivo principal
+                <select name="goal">
+                  <option value="ahorro">Ahorrar y trabajar fuerte</option>
+                  <option value="equilibrio">Equilibrar vida, trabajo y adaptación</option>
+                  <option value="estudiar">Estudiar y abrir camino</option>
+                  <option value="reinicio">Cambiar de aire y empezar de cero</option>
+                </select>
+              </label>
+
+              <label>
+                Presupuesto inicial
+                <select name="budget">
+                  <option value="alto">Más de 6.000 EUR</option>
+                  <option value="medio">Entre 3.500 y 6.000 EUR</option>
+                  <option value="ajustado">Menos de 3.500 EUR</option>
+                </select>
+              </label>
+
+              <label>
+                Nivel de inglés
+                <select name="english">
+                  <option value="alto">Alto</option>
+                  <option value="medio">Intermedio</option>
+                  <option value="basico">Básico</option>
+                </select>
+              </label>
+
+              <label>
+                Qué priorizas
+                <select name="priority">
+                  <option value="ahorro">Capacidad de ahorro</option>
+                  <option value="comunidad">Comunidad y aterrizaje amable</option>
+                  <option value="estabilidad">Orden e idioma</option>
+                  <option value="aventura">Movimiento y aventura</option>
+                </select>
+              </label>
+
+              <button class="primary-btn wide" type="submit">Calcular ruta sugerida</button>
+            </form>
+          </article>
+
+          <article class="panel-card highlight-card" id="fit-result" aria-live="polite">
+            <span class="section-tag">Resultado</span>
+            <h3>Haz el radar y te propongo una ruta base.</h3>
+            <p>Esta lectura inicial te ayuda a decidir por dónde mirar primero y qué tipo de aterrizaje esperar.</p>
+          </article>
+
+          <article class="panel-card">
+            <div class="panel-head">
+              <span class="section-tag">Comunidad</span>
+              <strong>Lo más reciente</strong>
+            </div>
+            <div class="mini-feed" id="community-preview"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" data-panel="community">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Foro práctico</span>
+            <h3>Preguntas reales, respuestas útiles y experiencias de aterrizaje.</h3>
+          </div>
+        </div>
+
+        <div class="community-layout">
+          <div class="forum-column">
+            <article class="panel-card">
+              <div class="filters" id="community-filters">
+                <button class="filter-chip is-active" data-category="all" type="button">Todo</button>
+                <button class="filter-chip" data-category="alojamiento" type="button">Alojamiento</button>
+                <button class="filter-chip" data-category="trabajo" type="button">Trabajo</button>
+                <button class="filter-chip" data-category="tramites" type="button">Trámites</button>
+                <button class="filter-chip" data-category="vida-real" type="button">Vida real</button>
+              </div>
+
+              <div class="forum-list" id="forum-list"></div>
+            </article>
+          </div>
+
+          <div class="forum-column">
+            <article class="panel-card">
+              <div class="panel-head">
+                <span class="section-tag">Nuevo hilo</span>
+                <strong>Publicar en comunidad</strong>
+              </div>
+
+              <form class="stack-form" id="post-form">
+                <label>
+                  Categoría
+                  <select name="category">
+                    <option value="alojamiento">Alojamiento</option>
+                    <option value="trabajo">Trabajo</option>
+                    <option value="tramites">Trámites</option>
+                    <option value="vida-real">Vida real</option>
+                  </select>
+                </label>
+
+                <label>
+                  Ruta relacionada
+                  <select name="route" id="post-route-select"></select>
+                </label>
+
+                <label>
+                  Título
+                  <input type="text" name="title" maxlength="90" placeholder="Ejemplo: cuánto colchón real necesito para llegar a Melbourne" required />
+                </label>
+
+                <label>
+                  Cuerpo
+                  <textarea
+                    name="body"
+                    rows="5"
+                    maxlength="900"
+                    placeholder="Explica el contexto, lo que ya averiguaste y dónde te estás trabando."
+                    required
+                  ></textarea>
+                </label>
+
+                <button class="primary-btn wide" type="submit">Publicar hilo</button>
+              </form>
+            </article>
+
+            <article class="panel-card thread-panel" id="thread-detail">
+              <span class="section-tag">Detalle del hilo</span>
+              <h3>Selecciona un hilo para leerlo mejor o responder.</h3>
+              <p>Aquí aparecerán el contenido completo, respuestas y un formulario para seguir la conversación.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" data-panel="routes">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Explorar</span>
+            <h3>Opciones migratorias por perfil, visa y momento de vida.</h3>
+            <p class="section-copy">
+              Esta primera versión deja de pensar solo en working holiday y ordena la exploración según el tipo de
+              usuario, sin romper la navegación ni las herramientas que ya usas.
+            </p>
+          </div>
+        </div>
+
+        <div class="explore-top-grid">
+          <article class="panel-card visa-tool-card">
+            <div class="panel-head">
+              <div>
+                <span class="section-tag">Herramienta</span>
+                <strong>¿Qué visa me conviene?</strong>
+              </div>
+            </div>
+
+            <form class="stack-form visa-match-form" id="visa-match-form">
+              <div class="visa-match-grid">
+                <label>
+                  Objetivo principal
+                  <select name="goal">
+                    <option value="working-holiday">Quiero working holiday</option>
+                    <option value="study">Quiero estudiar</option>
+                    <option value="emigrate">Quiero emigrar</option>
+                    <option value="remote">Trabajo remoto</option>
+                    <option value="family">Me importa reagrupar familia</option>
+                  </select>
+                </label>
+
+                <label>
+                  ¿Tienes pasaporte UE?
+                  <select name="euPassport">
+                    <option value="no">No</option>
+                    <option value="yes">Sí</option>
+                    <option value="in-process">Lo estoy tramitando</option>
+                  </select>
+                </label>
+
+                <label>
+                  Edad
+                  <select name="ageRange">
+                    <option value="18-30">18 a 30</option>
+                    <option value="31-35">31 a 35</option>
+                    <option value="36+">36 o más</option>
+                  </select>
+                </label>
+
+                <label>
+                  Nivel de inglés
+                  <select name="englishLevel">
+                    <option value="basic">Básico</option>
+                    <option value="mid">Intermedio</option>
+                    <option value="high">Alto</option>
+                  </select>
+                </label>
+
+                <label>
+                  Presupuesto inicial
+                  <select name="budgetLevel">
+                    <option value="low">Ajustado</option>
+                    <option value="mid">Medio</option>
+                    <option value="high">Alto</option>
+                  </select>
+                </label>
+              </div>
+
+              <button class="primary-btn wide" type="submit">Ver recomendación</button>
+            </form>
+
+            <div class="highlight-card visa-match-result" id="visa-match-result" aria-live="polite">
+              <span class="section-tag">Resultado inicial</span>
+              <h3>Responde 5 preguntas y te ordeno por dónde empezar.</h3>
+              <p>
+                La idea no es venderte una visa cualquiera, sino separarte rápido entre rutas temporales, estudio,
+                ciudadanía UE, remoto o migración más estructurada.
+              </p>
+            </div>
+          </article>
+
+          <article class="panel-card explore-spotlight" id="explore-spotlight">
+            <span class="section-tag">Lectura rápida</span>
+            <h3>Selecciona un perfil para ver prioridades, obstáculos y destinos base.</h3>
+            <p>Este panel cambia según el tab que elijas y te baja la conversación a algo más accionable.</p>
+          </article>
+        </div>
+
+        <div class="explore-tabs" id="explore-tabs" aria-label="Explorar por tipo de usuario">
+          <button class="filter-chip" data-explore-tab="working-holiday" type="button">Tengo WH visa</button>
+          <button class="filter-chip" data-explore-tab="study" type="button">Quiero estudiar</button>
+          <button class="filter-chip" data-explore-tab="eu-passport" type="button">Tengo pasaporte EU</button>
+          <button class="filter-chip is-active" data-explore-tab="emigrate" type="button">Quiero emigrar</button>
+          <button class="filter-chip" data-explore-tab="remote" type="button">Trabajo remoto</button>
+          <button class="filter-chip" data-explore-tab="no-eu" type="button">Sin documentos EU</button>
+        </div>
+
+        <div class="filters" id="country-filters">
+          <button class="filter-chip is-active" data-filter="all" type="button">Todas</button>
+          <button class="filter-chip" data-filter="Australia" type="button">Australia</button>
+          <button class="filter-chip" data-filter="Nueva Zelanda" type="button">Nueva Zelanda</button>
+          <button class="filter-chip" data-filter="Irlanda" type="button">Irlanda</button>
+          <button class="filter-chip" data-filter="Canadá" type="button">Canadá</button>
+          <button class="filter-chip" data-filter="Alemania" type="button">Alemania</button>
+          <button class="filter-chip" data-filter="España" type="button">España</button>
+          <button class="filter-chip" data-filter="Portugal" type="button">Portugal</button>
+          <button class="filter-chip" data-filter="Italia" type="button">Italia</button>
+          <button class="filter-chip" data-filter="Estonia" type="button">Estonia</button>
+          <button class="filter-chip" data-filter="Tailandia" type="button">Tailandia</button>
+          <button class="filter-chip" data-filter="Europa" type="button">Europa</button>
+        </div>
+
+        <div class="routes-layout">
+          <div class="route-list" id="route-list"></div>
+
+          <aside class="panel-card route-detail" id="route-detail">
+            <span class="section-tag">Ruta</span>
+            <h3>Selecciona una ruta para ver guías, checklist y experiencias.</h3>
+            <p>Esta vista funciona como un mini centro de planificación dentro de la comunidad.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view" data-panel="diary">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Bitácora personal</span>
+            <h3>Guarda lo que te pasa para no vivir cada aprendizaje desde cero.</h3>
+          </div>
+        </div>
+
+        <div class="diary-layout">
+          <article class="panel-card">
+            <form class="stack-form" id="diary-form">
+              <label>
+                Ruta o país
+                <select name="route" id="diary-route-select"></select>
+              </label>
+
+              <label>
+                Momento
+                <select name="mood">
+                  <option value="claro">Claro</option>
+                  <option value="movido">Movido</option>
+                  <option value="agotado">Agotado</option>
+                  <option value="feliz">Feliz</option>
+                </select>
+              </label>
+
+              <label>
+                Título
+                <input type="text" name="title" maxlength="80" placeholder="Ejemplo: primer día visitando habitaciones" required />
+              </label>
+
+              <label>
+                Entrada
+                <textarea
+                  name="body"
+                  rows="6"
+                  maxlength="700"
+                  placeholder="Qué aprendiste, qué trámite resolviste, cuánto te costó algo, qué te sorprendió o qué harías distinto."
+                  required
+                ></textarea>
+              </label>
+
+              <button class="primary-btn wide" type="submit">Guardar entrada</button>
+            </form>
+          </article>
+
+          <article class="panel-card">
+            <div class="feed-header">
+              <h3>Tus entradas</h3>
+              <button class="secondary-btn small" id="clear-diary" type="button">Vaciar mis entradas</button>
+            </div>
+            <div class="feed-list" id="diary-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" data-panel="profile">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Perfil</span>
+            <h3>Tu estado actual dentro de la comunidad.</h3>
+          </div>
+        </div>
+
+        <div class="profile-grid">
+          <article class="panel-card profile-card">
+            <span class="section-tag">Tu cuenta local</span>
+            <h3 id="profile-name">Perfil</h3>
+            <ul class="detail-list" id="profile-summary"></ul>
+          </article>
+
+          <article class="panel-card profile-card">
+            <span class="section-tag">Uso personal</span>
+            <div class="stat-strip" id="profile-stats"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js" type="module"></script>
+</body>
+</html>
