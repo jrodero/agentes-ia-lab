@@ -2,9 +2,16 @@ import fs from "fs";
 import path from "path";
 import crypto from "crypto";
 import bcrypt from "bcryptjs";
+import { fileURLToPath } from "url";
 
-export const COMMUNITY_FILE = process.env.COMMUNITY_FILE || "community-data.json";
-export const AUTH_FILE = process.env.AUTH_FILE || path.join("data", "users.json");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export const COMMUNITY_FILE = process.env.COMMUNITY_FILE
+  ? path.resolve(process.env.COMMUNITY_FILE)
+  : path.join(__dirname, "community-data.json");
+export const DEFAULT_AUTH_FILE = path.join(__dirname, "data", "users.json");
+export const AUTH_FILE = process.env.AUTH_FILE ? path.resolve(process.env.AUTH_FILE) : DEFAULT_AUTH_FILE;
 const SESSION_COOKIE = "glr_session";
 const RESET_TOKEN_TTL_MS = 1000 * 60 * 30;
 
@@ -81,6 +88,22 @@ function ensureDirForFile(filePath) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
 }
 
+function readJsonFile(filePath, fallback) {
+  try {
+    if (!fs.existsSync(filePath)) {
+      return fallback;
+    }
+
+    const raw = fs.readFileSync(filePath, "utf-8");
+    return {
+      ...fallback,
+      ...JSON.parse(raw || "{}"),
+    };
+  } catch {
+    return fallback;
+  }
+}
+
 export function ensureCommunityStore() {
   if (!fs.existsSync(COMMUNITY_FILE)) {
     fs.writeFileSync(COMMUNITY_FILE, JSON.stringify(createDefaultCommunityStore(), null, 2), "utf-8");
@@ -96,13 +119,7 @@ export function ensureAuthStore() {
 
 export function loadCommunityStore() {
   ensureCommunityStore();
-  const raw = fs.readFileSync(COMMUNITY_FILE, "utf-8");
-  const parsed = JSON.parse(raw || "{}");
-
-  return {
-    ...createDefaultCommunityStore(),
-    ...parsed,
-  };
+  return readJsonFile(COMMUNITY_FILE, createDefaultCommunityStore());
 }
 
 export function saveCommunityStore(store) {
@@ -111,13 +128,14 @@ export function saveCommunityStore(store) {
 
 export function loadAuthStore() {
   ensureAuthStore();
-  const raw = fs.readFileSync(AUTH_FILE, "utf-8");
-  const parsed = JSON.parse(raw || "{}");
+  const store = readJsonFile(AUTH_FILE, createDefaultAuthStore());
+  const { nextStore, changed } = mergeBundledAdminUsers(store);
 
-  return {
-    ...createDefaultAuthStore(),
-    ...parsed,
-  };
+  if (changed) {
+    saveAuthStore(nextStore);
+  }
+
+  return nextStore;
 }
 
 export function saveAuthStore(store) {
@@ -169,6 +187,79 @@ function hashPassword(password) {
 
 function verifyPassword(password, storedHash) {
   return bcrypt.compareSync(password, storedHash);
+}
+
+function loadBundledAuthSeed() {
+  return readJsonFile(DEFAULT_AUTH_FILE, createDefaultAuthStore());
+}
+
+// Si Railway apunta AUTH_FILE a otro volumen, seguimos garantizando el admin del repo.
+function mergeBundledAdminUsers(store) {
+  if (AUTH_FILE === DEFAULT_AUTH_FILE) {
+    return { nextStore: store, changed: false };
+  }
+
+  const seedStore = loadBundledAuthSeed();
+  const adminSeeds = seedStore.users.filter((user) => user.role === "admin");
+
+  if (!adminSeeds.length) {
+    return { nextStore: store, changed: false };
+  }
+
+  const nextUsers = [...store.users];
+  let changed = false;
+
+  adminSeeds.forEach((seedUser) => {
+    const normalizedSeedUser = {
+      id: seedUser.id || crypto.randomUUID(),
+      name: String(seedUser.name || "").trim(),
+      username: formatUsername(seedUser.username, seedUser.name, seedUser.email),
+      email: normalizeEmail(seedUser.email),
+      passwordHash: seedUser.passwordHash,
+      role: seedUser.role || "admin",
+      origin: String(seedUser.origin || "").trim(),
+      bio: String(seedUser.bio || "").trim(),
+      stage: seedUser.stage || "explorando",
+      createdAt: seedUser.createdAt || new Date().toISOString(),
+    };
+
+    const existingIndex = nextUsers.findIndex(
+      (user) =>
+        user.email === normalizedSeedUser.email ||
+        normalizeUsername(user.username) === normalizeUsername(normalizedSeedUser.username)
+    );
+
+    if (existingIndex === -1) {
+      nextUsers.push(normalizedSeedUser);
+      changed = true;
+      return;
+    }
+
+    const existingUser = nextUsers[existingIndex];
+    const mergedUser = {
+      ...existingUser,
+      ...normalizedSeedUser,
+      id: existingUser.id || normalizedSeedUser.id,
+      createdAt: existingUser.createdAt || normalizedSeedUser.createdAt,
+    };
+
+    if (JSON.stringify(existingUser) !== JSON.stringify(mergedUser)) {
+      nextUsers[existingIndex] = mergedUser;
+      changed = true;
+    }
+  });
+
+  if (!changed) {
+    return { nextStore: store, changed: false };
+  }
+
+  return {
+    nextStore: {
+      ...store,
+      users: nextUsers,
+    },
+    changed: true,
+  };
 }
 
 export function publicUser(user) {
