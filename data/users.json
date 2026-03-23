@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": "31510870-bde8-4587-9617-090c1fe94e43",
+      "name": "Juan",
+      "username": "Juanote",
+      "email": "roderojuan@gmail.com",
+      "passwordHash": "$2b$10$9ExCLzMcVMKAx4HyEygY4.vQb5Hpggh2i1/MXm.WNzcd67LGcTE3W",
+      "role": "admin",
+      "origin": "Argentina",
+      "bio": "Argentina, Nueva Zelanda, Australia, España - 10 años lidiando con trabajos, estudios, idioma, visas y documentación que fueron un dolor de cabeza real...",
+      "stage": "explorando",
+      "createdAt": "2026-03-22T23:55:00.000Z"
+    }
+  ],
+  "sessions": [
+    {
+      "token": "a9d1e4b7dbb733b2585bd6b1ee2342aee47ffa58f50311b09dbc95d6ac9a1572",
+      "userId": "31510870-bde8-4587-9617-090c1fe94e43",
+      "createdAt": "2026-03-22T23:45:45.983Z"
+    }
+  ],
+  "passwordResetTokens": []
+}
