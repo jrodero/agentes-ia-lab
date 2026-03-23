@@ -14,6 +14,7 @@ import {
   deleteDiaryEntry,
   deleteSession,
   ensureAuthStore,
+  ensureBootstrapAdminUser,
   ensureCommunityStore,
   findUserBySessionToken,
   getBootstrapData,
@@ -62,6 +63,7 @@ app.use(express.static(path.join(__dirname, "public")));
 const sessions = {};
 ensureCommunityStore();
 ensureAuthStore();
+ensureBootstrapAdminUser();
 
 const featuredCountries = [
   {

@@ -10,10 +10,21 @@ const __dirname = path.dirname(__filename);
 export const COMMUNITY_FILE = process.env.COMMUNITY_FILE
   ? path.resolve(process.env.COMMUNITY_FILE)
   : path.join(__dirname, "community-data.json");
-export const DEFAULT_AUTH_FILE = path.join(__dirname, "data", "users.json");
-export const AUTH_FILE = process.env.AUTH_FILE ? path.resolve(process.env.AUTH_FILE) : DEFAULT_AUTH_FILE;
+export const AUTH_FILE = process.env.AUTH_FILE ? path.resolve(process.env.AUTH_FILE) : path.join(__dirname, "data", "users.json");
 const SESSION_COOKIE = "glr_session";
 const RESET_TOKEN_TTL_MS = 1000 * 60 * 30;
+const BOOTSTRAP_ADMIN = {
+  id: "admin-001",
+  name: "Jota",
+  username: "juanote",
+  email: "roderojuan@gmail.com",
+  password: "MaTT22eo22",
+  role: "admin",
+  origin: "Argentina",
+  bio:
+    "Argentina, Nueva Zelanda, Australia, España — 10 años lidiando con trabajos, estudios, idioma, visas y documentación que fueron un dolor de cabeza real. Creé Me quiero ir para que ustedes no tengan que pasar por lo mismo.",
+  stage: "explorando",
+};
 
 const seedPosts = [
   {
@@ -128,14 +139,7 @@ export function saveCommunityStore(store) {
 
 export function loadAuthStore() {
   ensureAuthStore();
-  const store = readJsonFile(AUTH_FILE, createDefaultAuthStore());
-  const { nextStore, changed } = mergeBundledAdminUsers(store);
-
-  if (changed) {
-    saveAuthStore(nextStore);
-  }
-
-  return nextStore;
+  return readJsonFile(AUTH_FILE, createDefaultAuthStore());
 }
 
 export function saveAuthStore(store) {
@@ -189,79 +193,6 @@ function verifyPassword(password, storedHash) {
   return bcrypt.compareSync(password, storedHash);
 }
 
-function loadBundledAuthSeed() {
-  return readJsonFile(DEFAULT_AUTH_FILE, createDefaultAuthStore());
-}
-
-// Si Railway apunta AUTH_FILE a otro volumen, seguimos garantizando el admin del repo.
-function mergeBundledAdminUsers(store) {
-  if (AUTH_FILE === DEFAULT_AUTH_FILE) {
-    return { nextStore: store, changed: false };
-  }
-
-  const seedStore = loadBundledAuthSeed();
-  const adminSeeds = seedStore.users.filter((user) => user.role === "admin");
-
-  if (!adminSeeds.length) {
-    return { nextStore: store, changed: false };
-  }
-
-  const nextUsers = [...store.users];
-  let changed = false;
-
-  adminSeeds.forEach((seedUser) => {
-    const normalizedSeedUser = {
-      id: seedUser.id || crypto.randomUUID(),
-      name: String(seedUser.name || "").trim(),
-      username: formatUsername(seedUser.username, seedUser.name, seedUser.email),
-      email: normalizeEmail(seedUser.email),
-      passwordHash: seedUser.passwordHash,
-      role: seedUser.role || "admin",
-      origin: String(seedUser.origin || "").trim(),
-      bio: String(seedUser.bio || "").trim(),
-      stage: seedUser.stage || "explorando",
-      createdAt: seedUser.createdAt || new Date().toISOString(),
-    };
-
-    const existingIndex = nextUsers.findIndex(
-      (user) =>
-        user.email === normalizedSeedUser.email ||
-        normalizeUsername(user.username) === normalizeUsername(normalizedSeedUser.username)
-    );
-
-    if (existingIndex === -1) {
-      nextUsers.push(normalizedSeedUser);
-      changed = true;
-      return;
-    }
-
-    const existingUser = nextUsers[existingIndex];
-    const mergedUser = {
-      ...existingUser,
-      ...normalizedSeedUser,
-      id: existingUser.id || normalizedSeedUser.id,
-      createdAt: existingUser.createdAt || normalizedSeedUser.createdAt,
-    };
-
-    if (JSON.stringify(existingUser) !== JSON.stringify(mergedUser)) {
-      nextUsers[existingIndex] = mergedUser;
-      changed = true;
-    }
-  });
-
-  if (!changed) {
-    return { nextStore: store, changed: false };
-  }
-
-  return {
-    nextStore: {
-      ...store,
-      users: nextUsers,
-    },
-    changed: true,
-  };
-}
-
 export function publicUser(user) {
   return {
     id: user.id,
@@ -292,6 +223,34 @@ function buildUserRecord({ name, username, email, password, origin, stage = "exp
     stage,
     createdAt: new Date().toISOString(),
   };
+}
+
+export function ensureBootstrapAdminUser() {
+  const store = loadAuthStore();
+  const normalizedEmail = normalizeEmail(BOOTSTRAP_ADMIN.email);
+  const normalizedUsername = normalizeUsername(BOOTSTRAP_ADMIN.username);
+  const exists = store.users.some(
+    (user) => user.email === normalizedEmail || normalizeUsername(user.username) === normalizedUsername
+  );
+
+  if (exists) {
+    return;
+  }
+
+  const adminUser = buildUserRecord({
+    name: BOOTSTRAP_ADMIN.name,
+    username: BOOTSTRAP_ADMIN.username,
+    email: BOOTSTRAP_ADMIN.email,
+    password: BOOTSTRAP_ADMIN.password,
+    origin: BOOTSTRAP_ADMIN.origin,
+    stage: BOOTSTRAP_ADMIN.stage,
+    role: BOOTSTRAP_ADMIN.role,
+    bio: BOOTSTRAP_ADMIN.bio,
+  });
+
+  adminUser.id = BOOTSTRAP_ADMIN.id;
+  store.users.push(adminUser);
+  saveAuthStore(store);
 }
 
 export function createUser({ name, username, email, password, origin, stage = "explorando", role = "user", bio = "" }) {

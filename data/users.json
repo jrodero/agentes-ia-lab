@@ -14,9 +14,9 @@
   ],
   "sessions": [
     {
-      "token": "2b41d8a10ad10d4a2a8cda5ade7e4cf1d007960a4e0b0eb8504befe00c15bde7",
+      "token": "ebba3b80d1b980b3f89d71100c292210810917b3099c7a7a6ea6c91f8fc7758e",
       "userId": "admin-001",
-      "createdAt": "2026-03-23T07:42:23.072Z"
+      "createdAt": "2026-03-23T07:55:45.700Z"
     }
   ],
   "passwordResetTokens": []

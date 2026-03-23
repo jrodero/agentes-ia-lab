@@ -16,6 +16,7 @@ const paymentLinks = {
 };
 
 let sessionId = null;
+let chatHistoryEntryActive = false;
 
 function addMessage(text, sender) {
   const div = document.createElement("div");
@@ -27,14 +28,26 @@ function addMessage(text, sender) {
 
 function openChat() {
   closeTopbarMenu();
+
+  if (!chatModal.classList.contains("is-open")) {
+    window.history.pushState({ chatOpen: true }, "", window.location.href);
+    chatHistoryEntryActive = true;
+  }
+
   chatModal.classList.add("is-open");
   chatModal.setAttribute("aria-hidden", "false");
   setTimeout(() => input.focus(), 80);
 }
 
-function closeChat() {
+function closeChat({ fromPopstate = false } = {}) {
+  if (!fromPopstate && chatHistoryEntryActive) {
+    window.history.back();
+    return;
+  }
+
   chatModal.classList.remove("is-open");
   chatModal.setAttribute("aria-hidden", "true");
+  chatHistoryEntryActive = false;
 }
 
 function toggleTopbarMenu() {
@@ -175,6 +188,12 @@ if (closeChatBtn) closeChatBtn.addEventListener("click", closeChat);
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeChat();
   if (e.key === "Escape") closeTopbarMenu();
+});
+
+window.addEventListener("popstate", () => {
+  if (chatModal.classList.contains("is-open")) {
+    closeChat({ fromPopstate: true });
+  }
 });
 
 window.addEventListener("scroll", updateTopbarScrollState, { passive: true });
