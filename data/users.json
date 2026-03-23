@@ -1,18 +1,23 @@
 {
   "users": [
     {
-      "id": "31510870-bde8-4587-9617-090c1fe94e43",
-      "name": "Juan",
-      "username": "Juanote",
+      "id": "admin-001",
+      "name": "Jota",
+      "username": "juanote",
       "email": "roderojuan@gmail.com",
-      "passwordHash": "$2b$10$9ExCLzMcVMKAx4HyEygY4.vQb5Hpggh2i1/MXm.WNzcd67LGcTE3W",
+      "passwordHash": "$2b$10$JIqrrbsAmnjaoxuYs.DQeOWsGVMpXuscsxFHqO5L8peU6Aiz37OCK",
       "role": "admin",
       "origin": "Argentina",
-      "bio": "Argentina, Nueva Zelanda, Australia, España - 10 años lidiando con trabajos, estudios, idioma, visas y documentación que fueron un dolor de cabeza real...",
-      "stage": "explorando",
-      "createdAt": "2026-03-22T23:55:00.000Z"
+      "bio": "Argentina, Nueva Zelanda, Australia, España — 10 años lidiando con trabajos, estudios, idioma, visas y documentación que fueron un dolor de cabeza real. Creé Me quiero ir para que ustedes no tengan que pasar por lo mismo.",
+      "createdAt": "2026-03-23T07:42:18.762Z"
     }
   ],
-  "sessions": [],
+  "sessions": [
+    {
+      "token": "2b41d8a10ad10d4a2a8cda5ade7e4cf1d007960a4e0b0eb8504befe00c15bde7",
+      "userId": "admin-001",
+      "createdAt": "2026-03-23T07:42:23.072Z"
+    }
+  ],
   "passwordResetTokens": []
 }
