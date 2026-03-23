@@ -13,12 +13,6 @@
       "createdAt": "2026-03-22T23:55:00.000Z"
     }
   ],
-  "sessions": [
-    {
-      "token": "a9d1e4b7dbb733b2585bd6b1ee2342aee47ffa58f50311b09dbc95d6ac9a1572",
-      "userId": "31510870-bde8-4587-9617-090c1fe94e43",
-      "createdAt": "2026-03-22T23:45:45.983Z"
-    }
-  ],
+  "sessions": [],
   "passwordResetTokens": []
 }
