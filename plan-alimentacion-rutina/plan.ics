@@ -1,0 +1,331 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Claude//Plan Alimentacion y Rutina//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Plan Alimentación y Rutina
+X-WR-CALDESC:Rutina + comidas + módulos del curso IFCD0210. Arranca 11-may-2026.
+X-WR-TIMEZONE:America/Argentina/Buenos_Aires
+BEGIN:VEVENT
+UID:rut-despertar@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🌅 Despertar + activación
+DESCRIPTION:🟥 OBLIGATORIO\nAgua (500 ml con limón opcional)\, ventana\, sin celular. Estiramiento corto.\nMeta hidratación: 3.0-3.5 L día.
+DTSTART:20260511T070000
+DTEND:20260511T073000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-desayuno@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🌅 Desayuno + planificación (3 prioridades)
+DESCRIPTION:🟥 OBLIGATORIO - Proteína + carbo lento + grasa buena.\nEj: 3 huevos + 60 g avena + 1 banana + café.\nDefinir las 3 prioridades del día.
+DTSTART:20260511T073000
+DTEND:20260511T081500
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-busqueda-am@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🔵 Búsqueda laboral profunda
+DESCRIPTION:🟥 OBLIGATORIO - Sin celular. CV\, LinkedIn\, postulaciones\, mensajes\, follow-ups.\nMeta: 3+ ofertas / 3+ mensajes por día.
+DTSTART:20260511T081500
+DTEND:20260511T101500
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-snack-am@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🥪 Snack AM
+DESCRIPTION:Proteína + fruta. Yogur griego + 30 g frutos secos + manzana\, o 2 huevos duros + fruta + almendras\, o batido proteína + manzana.\n💧 250 ml antes.
+DTSTART:20260511T103000
+DTEND:20260511T104500
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-repaso-curso@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🟣 Repaso / práctica del curso
+DESCRIPTION:🟨 FLEXIBLE - Adelantar lo que verás esa tarde o repasar lo del día anterior.
+DTSTART:20260511T104500
+DTEND:20260511T121500
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-kyra@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🐶 Kyra
+DESCRIPTION:🟥 OBLIGATORIO - Caminar\, jugar\, salir. Innegociable.
+DTSTART:20260511T123000
+DTEND:20260511T134500
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-pre-entreno@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🍌 Pre-entreno (1 h antes del gym)
+DESCRIPTION:Carbo rápido + algo de proteína.\nEj: banana + tostada con miel\, o 30 g avena + 1 dátil + café.\nSin grasas ni fibra alta.
+DTSTART:20260511T130000
+DTEND:20260511T131500
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-gym@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🏋️ Entrenamiento (CrossFit)
+DESCRIPTION:🟥 OBLIGATORIO - Sin teléfono. Solo entrenar.\n💧 500-750 ml durante (electrolitos si sudás mucho).
+DTSTART:20260511T140000
+DTEND:20260511T150000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-post-rapido@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🥤 Post-entreno rápido (batido)
+DESCRIPTION:Proteína líquida + carbo rápido.\nBatido de proteína + banana + 1 tostada. Entra rápido antes del curso.\n💧 500 ml.
+DTSTART:20260511T151500
+DTEND:20260511T153000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-almuerzo-ejecutivo@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🥡 Almuerzo ejecutivo (tupper)
+DESCRIPTION:🟥 Comida sólida preparada el día anterior. Tupper con pollo\, arroz y verduras. Comer en 15 min.
+DTSTART:20260511T154500
+DTEND:20260511T160000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-curso@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:📚 CURSO (IFCD0210)
+DESCRIPTION:🟥 OBLIGATORIO - Foco total. 4 horas.\n(Hasta 22/05 lo tenés en eventos previos - este bloque arranca el 26/05).
+DTSTART:20260526T160000
+DTEND:20260526T200000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+EXDATE:20260624T160000
+EXDATE:20260911T160000
+EXDATE:20260924T160000
+EXDATE:20261012T160000
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-snack-curso@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🍎 Snack durante el curso
+DESCRIPTION:Fácil\, sin distraer. Fruta + frutos secos + barrita proteica (idealmente casera).
+DTSTART:20260511T180000
+DTEND:20260511T181000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-cena@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🥗 Cena + descompresión
+DESCRIPTION:🟥 OBLIGATORIO - Liviana.\nEj: pescado o huevos + verduras + arroz/quinoa moderado.\nEvitar pantallas al final.
+DTSTART:20260511T200000
+DTEND:20260511T210000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-mini-bloque@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🟢 Mini-bloque búsqueda laboral
+DESCRIPTION:🟨 FLEXIBLE - 30-45 min: mails\, 2-3 postulaciones\, próximos pasos.
+DTSTART:20260511T210000
+DTEND:20260511T214500
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-guitarra-mar@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🎸 Guitarra - Técnica + canción nueva
+DESCRIPTION:🟨 FLEXIBLE - 45 min. Técnica + canción nueva.
+DTSTART:20260512T214500
+DTEND:20260512T223000
+RRULE:FREQ=WEEKLY;BYDAY=TU
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-guitarra-jue@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🎸 Guitarra - Repertorio + improvisación
+DESCRIPTION:🟨 FLEXIBLE - 45 min. Repertorio + improvisación.
+DTSTART:20260514T214500
+DTEND:20260514T223000
+RRULE:FREQ=WEEKLY;BYDAY=TH
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-lectura-noche@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:📖 Lectura (L\, X\, V)
+DESCRIPTION:🟨 FLEXIBLE - 30 min antes de dormir. Sin pantallas. Papel o e-reader\, no celular.
+DTSTART:20260511T220000
+DTEND:20260511T223000
+RRULE:FREQ=WEEKLY;BYDAY=MO,WE,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-presueno@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🥛 Pre-sueño (opcional)
+DESCRIPTION:Solo si tenés hambre real. Yogur griego + canela\, queso cottage + manteca de maní\, o caseína.
+DTSTART:20260511T220000
+DTEND:20260511T221000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-dormir@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🌙 Dormir
+DESCRIPTION:🟥 OBLIGATORIO - Mismo horario todos los días. Mínimo 7 h.
+DTSTART:20260511T223000
+DTEND:20260511T224000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-pesaje@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:⚖️ Pesaje semanal (ayunas)
+DESCRIPTION:1 vez por semana\, mismo día\, misma hora\, en ayunas. Registrar peso + % grasa. Medidas (cintura\, brazo\, pecho) cada 2 semanas.
+DTSTART:20260515T070500
+DTEND:20260515T071500
+RRULE:FREQ=WEEKLY;BYDAY=FR
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-sab-busqueda@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🔵 Bloque profundo sábado AM
+DESCRIPTION:3 h búsqueda laboral profunda + portfolio/proyecto. Sin interrupciones.
+DTSTART:20260516T090000
+DTEND:20260516T120000
+RRULE:FREQ=WEEKLY;BYDAY=SA
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-sab-guitarra@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🎸 Guitarra - Libre
+DESCRIPTION:🟨 FLEXIBLE - 1 h. Tocar lo que tengas ganas.
+DTSTART:20260516T170000
+DTEND:20260516T180000
+RRULE:FREQ=WEEKLY;BYDAY=SA
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-dom-lectura@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:📖 Lectura larga
+DESCRIPTION:🟨 FLEXIBLE - 1 h. Sillón\, café\, lectura tranquila. Recompensa de la semana.
+DTSTART:20260517T100000
+DTEND:20260517T110000
+RRULE:FREQ=WEEKLY;BYDAY=SU
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-dom-repaso@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:📚 Repaso del curso + prep semana
+DESCRIPTION:Repasar lo de la semana del curso y preparar la que viene.
+DTSTART:20260517T110000
+DTEND:20260517T123000
+RRULE:FREQ=WEEKLY;BYDAY=SU
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-dom-mealprep@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🍳 Meal prep (1.5-2 h)
+DESCRIPTION:Arroz/quinoa/papa (30')\, pollo + carne (40')\, hervir 10 huevos (12')\, cortar verduras (20')\, porcionar fruta (15')\, avena overnight x3 (10').\nCRÍTICO en semanas con curso: 4 almuerzos listos + base para 3 más + snacks.
+DTSTART:20260517T140000
+DTEND:20260517T160000
+RRULE:FREQ=WEEKLY;BYDAY=SU
+END:VEVENT
+BEGIN:VEVENT
+UID:rut-dom-revision@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🔁 Revisión semanal + planificación
+DESCRIPTION:30 min. Las 3 preguntas:\n1. ¿Qué fue lo más útil esta semana?\n2. ¿Qué no funcionó y corto?\n3. ¿Cuál es la única cosa que si la hago la próxima semana\, el resto importa menos?
+DTSTART:20260517T160000
+DTEND:20260517T163000
+RRULE:FREQ=WEEKLY;BYDAY=SU
+END:VEVENT
+BEGIN:VEVENT
+UID:mod-uf1843@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🟢 UF1843 — Usabilitat i accessibilitat (26 h)
+DESCRIPTION:MF0491 - Programació web a l'entorn client.\nDuración tentativa: ~7 días lectivos.
+DTSTART;VALUE=DATE:20260522
+DTEND;VALUE=DATE:20260602
+END:VEVENT
+BEGIN:VEVENT
+UID:mod-uf1844@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🟪 UF1844 — Desenvolupament a l'entorn servidor (78 h)
+DESCRIPTION:MF0492 - Programació web a l'entorn servidor.\nDuración tentativa: ~20 días lectivos.
+DTSTART;VALUE=DATE:20260602
+DTEND;VALUE=DATE:20260701
+END:VEVENT
+BEGIN:VEVENT
+UID:mod-uf1845@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🟣 UF1845 — Accés a dades (78 h)
+DESCRIPTION:MF0492 - Programació web a l'entorn servidor.\nDuración tentativa: ~20 días lectivos.
+DTSTART;VALUE=DATE:20260701
+DTEND;VALUE=DATE:20260801
+END:VEVENT
+BEGIN:VEVENT
+UID:mod-receso-agosto@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🏖️ Receso del curso (agosto)
+DESCRIPTION:Ventana ideal para descanso real\, ajustar rutina y meal prep extra. La rutina sigue (gym\, búsqueda\, Kyra) sin el bloque CURSO.
+DTSTART;VALUE=DATE:20260803
+DTEND;VALUE=DATE:20260901
+END:VEVENT
+BEGIN:VEVENT
+UID:mod-uf1846@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🟨 UF1846 — Aplicacions web distribuïdes (52 h)
+DESCRIPTION:MF0492 - Programació web a l'entorn servidor.\nDuración tentativa: ~13 días lectivos.
+DTSTART;VALUE=DATE:20260901
+DTEND;VALUE=DATE:20260923
+END:VEVENT
+BEGIN:VEVENT
+UID:mod-mf0493@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🟫 MF0493 — Implantació / Prácticas (148 h)
+DESCRIPTION:Práctica en empresa. Horario puede cambiar - ajustar rutina cuando se confirme.\nDuración tentativa: ~37 días lectivos.
+DTSTART;VALUE=DATE:20260923
+DTEND;VALUE=DATE:20261212
+END:VEVENT
+BEGIN:VEVENT
+UID:fest-pasqua-granada@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🔴 Festivo - Pasqua Granada (sin clase)
+DESCRIPTION:Confirmar si aplica como festivo local.
+DTSTART;VALUE=DATE:20260525
+DTEND;VALUE=DATE:20260526
+END:VEVENT
+BEGIN:VEVENT
+UID:fest-sant-joan@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🔴 Festivo - Sant Joan (sin clase)
+DTSTART;VALUE=DATE:20260624
+DTEND;VALUE=DATE:20260625
+END:VEVENT
+BEGIN:VEVENT
+UID:fest-diada@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🔴 Festivo - Diada de Catalunya (sin clase)
+DTSTART;VALUE=DATE:20260911
+DTEND;VALUE=DATE:20260912
+END:VEVENT
+BEGIN:VEVENT
+UID:fest-merce@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🔴 Festivo - La Mercè (BCN\, sin clase)
+DTSTART;VALUE=DATE:20260924
+DTEND;VALUE=DATE:20260925
+END:VEVENT
+BEGIN:VEVENT
+UID:fest-hispanidad@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🔴 Festivo - Hispanidad (sin clase)
+DTSTART;VALUE=DATE:20261012
+DTEND;VALUE=DATE:20261013
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,97 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Claude//Plan-Personal//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🎸 Plan - Personal & Hábitos
+X-WR-TIMEZONE:Europe/Madrid
+BEGIN:VTIMEZONE
+TZID:Europe/Madrid
+BEGIN:STANDARD
+DTSTART:19701025T030000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19700329T020000
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:p-guitarra-mar@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🎸 Guitarra - Técnica + canción nueva
+DESCRIPTION:🟨 FLEXIBLE - 45 min. Técnica + canción nueva.
+DTSTART;TZID=Europe/Madrid:20260512T214500
+DTEND;TZID=Europe/Madrid:20260512T223000
+RRULE:FREQ=WEEKLY;BYDAY=TU
+END:VEVENT
+BEGIN:VEVENT
+UID:p-guitarra-jue@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🎸 Guitarra - Repertorio + improvisación
+DESCRIPTION:🟨 FLEXIBLE - 45 min. Repertorio + improvisación.
+DTSTART;TZID=Europe/Madrid:20260514T214500
+DTEND;TZID=Europe/Madrid:20260514T223000
+RRULE:FREQ=WEEKLY;BYDAY=TH
+END:VEVENT
+BEGIN:VEVENT
+UID:p-guitarra-sab@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🎸 Guitarra - Libre
+DESCRIPTION:🟨 FLEXIBLE - 1 h. Tocar lo que tengas ganas.
+DTSTART;TZID=Europe/Madrid:20260516T170000
+DTEND;TZID=Europe/Madrid:20260516T180000
+RRULE:FREQ=WEEKLY;BYDAY=SA
+END:VEVENT
+BEGIN:VEVENT
+UID:p-lectura-noche@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:📖 Lectura (L\, X\, V)
+DESCRIPTION:🟨 FLEXIBLE - 30 min antes de dormir. Sin pantallas. Papel o e-reader\, no celular.
+DTSTART;TZID=Europe/Madrid:20260511T220000
+DTEND;TZID=Europe/Madrid:20260511T223000
+RRULE:FREQ=WEEKLY;BYDAY=MO,WE,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:p-dom-lectura@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:📖 Lectura larga
+DESCRIPTION:🟨 FLEXIBLE - 1 h. Sillón\, café\, lectura tranquila. Recompensa de la semana.
+DTSTART;TZID=Europe/Madrid:20260517T100000
+DTEND;TZID=Europe/Madrid:20260517T110000
+RRULE:FREQ=WEEKLY;BYDAY=SU
+END:VEVENT
+BEGIN:VEVENT
+UID:p-dom-repaso@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:📚 Repaso del curso + prep semana
+DESCRIPTION:Repasar lo de la semana del curso y preparar la que viene.
+DTSTART;TZID=Europe/Madrid:20260517T110000
+DTEND;TZID=Europe/Madrid:20260517T123000
+RRULE:FREQ=WEEKLY;BYDAY=SU
+END:VEVENT
+BEGIN:VEVENT
+UID:p-dom-mealprep@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🍳 Meal prep (1.5-2 h)
+DESCRIPTION:Arroz/quinoa/papa\, pollo + carne\, 10 huevos\, verduras\, fruta\, avena overnight x3.\nCRÍTICO en semanas con curso.
+DTSTART;TZID=Europe/Madrid:20260517T140000
+DTEND;TZID=Europe/Madrid:20260517T160000
+RRULE:FREQ=WEEKLY;BYDAY=SU
+END:VEVENT
+BEGIN:VEVENT
+UID:p-dom-revision@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🔁 Revisión semanal + planificación
+DESCRIPTION:30 min. Las 3 preguntas:\n1. ¿Qué fue lo más útil esta semana?\n2. ¿Qué no funcionó y corto?\n3. ¿Cuál es la única cosa que si la hago la próxima semana\, el resto importa menos?
+DTSTART;TZID=Europe/Madrid:20260517T160000
+DTEND;TZID=Europe/Madrid:20260517T163000
+RRULE:FREQ=WEEKLY;BYDAY=SU
+END:VEVENT
+END:VCALENDAR

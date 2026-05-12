@@ -1,0 +1,108 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Claude//Recordatorios Plan//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Recordatorios Plan
+X-WR-CALDESC:Checks diarios y semanales del plan. Importar a la app Recordatorios.
+BEGIN:VTODO
+UID:rec-prioridades@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🌅 Escribir las 3 prioridades del día
+DESCRIPTION:Al desayunar. Solo 3\, no más. Sin estas\, la rutina pierde foco.
+DUE:20260511T073000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+PRIORITY:1
+STATUS:NEEDS-ACTION
+END:VTODO
+BEGIN:VTODO
+UID:rec-postulaciones@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:📩 ¿Apliqué a 3+ ofertas o envié 3+ mensajes?
+DESCRIPTION:Check de búsqueda laboral. Una postulación buena > diez genéricas.
+DUE:20260511T190000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+PRIORITY:1
+STATUS:NEEDS-ACTION
+END:VTODO
+BEGIN:VTODO
+UID:rec-curso-avance@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:📚 ¿Avancé en curso o proyecto?
+DESCRIPTION:Check diario del curso o proyecto personal.
+DUE:20260511T210000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+PRIORITY:5
+STATUS:NEEDS-ACTION
+END:VTODO
+BEGIN:VTODO
+UID:rec-hidratacion@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:💧 Hidratación 3-3.5 L del día
+DESCRIPTION:Check diario. Orina amarillo claro = bien.
+DUE:20260511T200000
+RRULE:FREQ=DAILY
+PRIORITY:5
+STATUS:NEEDS-ACTION
+END:VTODO
+BEGIN:VTODO
+UID:rec-logro-mejora@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:📝 Anotar 1 logro del día + 1 mejora para mañana
+DESCRIPTION:Antes de dormir. 2 minutos.
+DUE:20260511T220000
+RRULE:FREQ=DAILY
+PRIORITY:5
+STATUS:NEEDS-ACTION
+END:VTODO
+BEGIN:VTODO
+UID:rec-pesaje@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:⚖️ Pesaje semanal (ayunas)
+DESCRIPTION:Viernes\, mismo día\, misma hora\, en ayunas. Registrar peso + % grasa. Medidas (cintura\, brazo\, pecho) cada 2 sem.
+DUE:20260515T070000
+RRULE:FREQ=WEEKLY;BYDAY=FR
+PRIORITY:5
+STATUS:NEEDS-ACTION
+END:VTODO
+BEGIN:VTODO
+UID:rec-mealprep@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🍳 Meal prep semanal (1.5-2 h)
+DESCRIPTION:Arroz/quinoa/papa\, pollo + carne\, 10 huevos\, verduras\, fruta\, avena overnight x3. CRÍTICO en semanas con curso.
+DUE:20260517T140000
+RRULE:FREQ=WEEKLY;BYDAY=SU
+PRIORITY:1
+STATUS:NEEDS-ACTION
+END:VTODO
+BEGIN:VTODO
+UID:rec-revision-semanal@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🔁 Revisión semanal (3 preguntas)
+DESCRIPTION:1. ¿Qué fue lo más útil esta semana?\n2. ¿Qué no funcionó y voy a cortar?\n3. ¿Cuál es la única cosa que si la hago la próxima semana\, el resto importa menos?
+DUE:20260517T160000
+RRULE:FREQ=WEEKLY;BYDAY=SU
+PRIORITY:1
+STATUS:NEEDS-ACTION
+END:VTODO
+BEGIN:VTODO
+UID:rec-kyra@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🐶 ¿Salí con Kyra hoy?
+DESCRIPTION:Check innegociable. Las postulaciones se reagendan\, los vínculos no.
+DUE:20260511T190000
+RRULE:FREQ=DAILY
+PRIORITY:1
+STATUS:NEEDS-ACTION
+END:VTODO
+BEGIN:VTODO
+UID:rec-dormir@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🌙 ¿Dormí 7+ horas anoche?
+DESCRIPTION:Check matinal. Sin sueño\, lo demás no funciona.
+DUE:20260512T073000
+RRULE:FREQ=DAILY
+PRIORITY:5
+STATUS:NEEDS-ACTION
+END:VTODO
+END:VCALENDAR

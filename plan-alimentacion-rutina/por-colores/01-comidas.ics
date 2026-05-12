@@ -1,0 +1,97 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Claude//Plan-Comidas//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🍽️ Plan - Comidas
+X-WR-TIMEZONE:Europe/Madrid
+BEGIN:VTIMEZONE
+TZID:Europe/Madrid
+BEGIN:STANDARD
+DTSTART:19701025T030000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19700329T020000
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:c-desayuno@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🌅 Desayuno + planificación
+DESCRIPTION:🟥 OBLIGATORIO - Proteína + carbo lento + grasa buena.\nEj: 3 huevos + 60 g avena + 1 banana + 1 cda manteca de maní + café.\nDefinir las 3 prioridades del día.
+DTSTART;TZID=Europe/Madrid:20260511T073000
+DTEND;TZID=Europe/Madrid:20260511T081500
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:c-snack-am@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🥪 Snack AM
+DESCRIPTION:Proteína + fruta.\nEj: yogur griego + 30 g frutos secos + manzana\, o 2 huevos duros + fruta + almendras\, o batido proteína + manzana.\n💧 250 ml antes.
+DTSTART;TZID=Europe/Madrid:20260511T103000
+DTEND;TZID=Europe/Madrid:20260511T104500
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:c-pre-entreno@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🍌 Pre-entreno (1 h antes del gym)
+DESCRIPTION:Carbo rápido + algo de proteína.\nEj: banana + tostada con miel\, o 30 g avena + 1 dátil + café.\nSin grasas ni fibra alta.
+DTSTART;TZID=Europe/Madrid:20260511T130000
+DTEND;TZID=Europe/Madrid:20260511T131500
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:c-post-rapido@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🥤 Post-entreno rápido (batido)
+DESCRIPTION:Proteína líquida + carbo rápido.\nBatido proteína + banana + tostada. Entra rápido antes del curso.\n💧 500 ml.
+DTSTART;TZID=Europe/Madrid:20260511T151500
+DTEND;TZID=Europe/Madrid:20260511T153000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:c-almuerzo-ejecutivo@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🥡 Almuerzo ejecutivo (tupper)
+DESCRIPTION:🟥 Comida sólida preparada el día anterior. Tupper pollo + arroz + verduras. Comer en 15 min.
+DTSTART;TZID=Europe/Madrid:20260511T154500
+DTEND;TZID=Europe/Madrid:20260511T160000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:c-snack-curso@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🍎 Snack durante el curso
+DESCRIPTION:Fácil\, sin distraer. Fruta + frutos secos + barrita proteica (idealmente casera).
+DTSTART;TZID=Europe/Madrid:20260511T180000
+DTEND;TZID=Europe/Madrid:20260511T181000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:c-cena@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🥗 Cena + descompresión
+DESCRIPTION:🟥 OBLIGATORIO - Liviana.\nEj: pescado o huevos + verduras + arroz/quinoa moderado.
+DTSTART;TZID=Europe/Madrid:20260511T200000
+DTEND;TZID=Europe/Madrid:20260511T210000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+BEGIN:VEVENT
+UID:c-presueno@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🥛 Pre-sueño (opcional)
+DESCRIPTION:Solo si tenés hambre real. Yogur griego + canela\, queso cottage + manteca de maní\, o caseína.
+DTSTART;TZID=Europe/Madrid:20260511T220000
+DTEND;TZID=Europe/Madrid:20260511T221000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+END:VEVENT
+END:VCALENDAR

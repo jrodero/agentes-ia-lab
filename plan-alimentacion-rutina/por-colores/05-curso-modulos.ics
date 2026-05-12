@@ -1,0 +1,92 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Claude//Plan-Curso-Modulos//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:📚 Plan - Curso (Módulos y Festivos)
+X-WR-TIMEZONE:Europe/Madrid
+BEGIN:VEVENT
+UID:m-uf1843@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🟢 UF1843 — Usabilitat i accessibilitat (26 h)
+DESCRIPTION:MF0491 - Programació web a l'entorn client.\nDuración tentativa: ~7 días lectivos.
+DTSTART;VALUE=DATE:20260522
+DTEND;VALUE=DATE:20260602
+END:VEVENT
+BEGIN:VEVENT
+UID:m-uf1844@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🟪 UF1844 — Desenvolupament a l'entorn servidor (78 h)
+DESCRIPTION:MF0492 - Programació web a l'entorn servidor.\nDuración tentativa: ~20 días lectivos.
+DTSTART;VALUE=DATE:20260602
+DTEND;VALUE=DATE:20260701
+END:VEVENT
+BEGIN:VEVENT
+UID:m-uf1845@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🟣 UF1845 — Accés a dades (78 h)
+DESCRIPTION:MF0492 - Programació web a l'entorn servidor.\nDuración tentativa: ~20 días lectivos.
+DTSTART;VALUE=DATE:20260701
+DTEND;VALUE=DATE:20260801
+END:VEVENT
+BEGIN:VEVENT
+UID:m-receso-agosto@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🏖️ Receso del curso (agosto)
+DESCRIPTION:Ventana ideal para descanso real\, ajustar rutina y meal prep extra. La rutina sigue (gym\, búsqueda\, Kyra) sin el bloque CURSO.
+DTSTART;VALUE=DATE:20260803
+DTEND;VALUE=DATE:20260901
+END:VEVENT
+BEGIN:VEVENT
+UID:m-uf1846@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🟨 UF1846 — Aplicacions web distribuïdes (52 h)
+DESCRIPTION:MF0492 - Programació web a l'entorn servidor.\nDuración tentativa: ~13 días lectivos.
+DTSTART;VALUE=DATE:20260901
+DTEND;VALUE=DATE:20260923
+END:VEVENT
+BEGIN:VEVENT
+UID:m-mf0493@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🟫 MF0493 — Implantació / Prácticas (148 h)
+DESCRIPTION:Práctica en empresa. Horario puede cambiar - ajustar rutina cuando se confirme.\nDuración tentativa: ~37 días lectivos.
+DTSTART;VALUE=DATE:20260923
+DTEND;VALUE=DATE:20261212
+END:VEVENT
+BEGIN:VEVENT
+UID:m-fest-pasqua-granada@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🔴 Festivo - Pasqua Granada (sin clase)
+DESCRIPTION:Confirmar si aplica como festivo local.
+DTSTART;VALUE=DATE:20260525
+DTEND;VALUE=DATE:20260526
+END:VEVENT
+BEGIN:VEVENT
+UID:m-fest-sant-joan@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🔴 Festivo - Sant Joan (sin clase)
+DTSTART;VALUE=DATE:20260624
+DTEND;VALUE=DATE:20260625
+END:VEVENT
+BEGIN:VEVENT
+UID:m-fest-diada@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🔴 Festivo - Diada de Catalunya (sin clase)
+DTSTART;VALUE=DATE:20260911
+DTEND;VALUE=DATE:20260912
+END:VEVENT
+BEGIN:VEVENT
+UID:m-fest-merce@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🔴 Festivo - La Mercè (BCN\, sin clase)
+DTSTART;VALUE=DATE:20260924
+DTEND;VALUE=DATE:20260925
+END:VEVENT
+BEGIN:VEVENT
+UID:m-fest-hispanidad@plan.claude
+DTSTAMP:20260511T200000Z
+SUMMARY:🔴 Festivo - Hispanidad (sin clase)
+DTSTART;VALUE=DATE:20261012
+DTEND;VALUE=DATE:20261013
+END:VEVENT
+END:VCALENDAR
