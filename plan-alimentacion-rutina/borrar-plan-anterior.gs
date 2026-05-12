@@ -64,3 +64,44 @@ function contarEventosPlan() {
   Logger.log('Encontrados ' + encontrados.length + ' eventos:');
   encontrados.forEach(t => Logger.log('  - ' + t));
 }
+
+// Busca y borra los eventos del plan en TODOS tus calendarios (no solo el principal).
+// Útil si importaste por error en un sub-calendario.
+function borrarEventosPlanEnTodos() {
+  const calendars = CalendarApp.getAllCalendars();
+  const desde = new Date('2026-05-01').toISOString();
+  const hasta = new Date('2027-12-31').toISOString();
+  let totalBorrados = 0;
+
+  for (const cal of calendars) {
+    const calId = cal.getId();
+    let token = null;
+    let borrados = 0;
+    do {
+      try {
+        const r = Calendar.Events.list(calId, {
+          timeMin: desde,
+          timeMax: hasta,
+          pageToken: token,
+          maxResults: 250,
+          singleEvents: false
+        });
+        for (const e of (r.items || [])) {
+          if (e.iCalUID && e.iCalUID.endsWith('@plan.claude')) {
+            Calendar.Events.remove(calId, e.id);
+            borrados++;
+          }
+        }
+        token = r.nextPageToken;
+      } catch (err) {
+        Logger.log('Error en "' + cal.getName() + '": ' + err);
+        token = null;
+      }
+    } while (token);
+    if (borrados > 0) {
+      Logger.log('Calendario "' + cal.getName() + '": ' + borrados + ' eventos borrados');
+      totalBorrados += borrados;
+    }
+  }
+  Logger.log('Total borrados: ' + totalBorrados);
+}
