@@ -19,7 +19,7 @@ export function Customizer() {
 
   const [baseId, setBaseId] = useState(bases[0]?.id ?? '');
   const base = bases.find((b) => b.id === baseId) ?? bases[0];
-  const [color, setColor] = useState<ColorId>(base?.colors[0] ?? 'hueso');
+  const [color, setColor] = useState<ColorId>(base?.colors[0] ?? 'blanco');
   const [size, setSize] = useState<Size | null>(null);
   const [design, setDesign] = useState<DesignId>(base?.design ?? 'texto');
   const [text, setText] = useState(base?.defaultText ?? '');
@@ -125,7 +125,7 @@ export function Customizer() {
             <legend><span className="step">5</span> Texto</legend>
             <label htmlFor="cz-text" className="sr-only">{d.textLabel ?? 'Texto'}</label>
             <input id="cz-text" value={d.takesText ? text : ''} placeholder={d.takesText ? d.textLabel : 'Este diseño no lleva texto'} maxLength={MAX_TEXT} onChange={(e) => setText(e.target.value)} />
-            <small>{d.takesText ? `${text.length}/${MAX_TEXT} caracteres · ${base.textIncluded ? 'incluido en el precio' : `+${TEXT_FEE} € por el texto`}` : 'Elige Lado A, Equipo 02, Mi yunta o Texto libre para añadir texto.'}</small>
+            <small>{d.takesText ? `${text.length}/${MAX_TEXT} caracteres · ${base.textIncluded ? 'incluido en el precio' : `+${TEXT_FEE} € por el texto`}` : 'Elige Lado A, Equipo 02, Mi hincha nº 1 o Texto libre para añadir texto.'}</small>
           </fieldset>
 
           <div className="price-box" aria-live="polite">

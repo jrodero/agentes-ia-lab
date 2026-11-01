@@ -8,10 +8,10 @@ import { BRAND } from '../lib/brand';
 import type { Category, DesignId } from '../lib/types';
 
 const FEATURED: { design: DesignId; bg: string }[] = [
-  { design: 'paseo', bg: '#DCE3D3' },
-  { design: 'ladoA', bg: '#EDE3D2' },
+  { design: 'logo', bg: '#DCEBF7' },
   { design: 'equipo', bg: '#E4E7EE' },
-  { design: 'miYunta', bg: '#F6E7C8' },
+  { design: 'hincha', bg: '#FBEBC8' },
+  { design: 'paseo', bg: '#E2EEE5' },
 ];
 
 export function Home() {
@@ -30,9 +30,9 @@ export function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <span className="kicker">Colección 01 · Invierno 2026–27</span>
-            <h1>Ropa con diseño propio, <em>hecha para ir juntos.</em></h1>
-            <p className="lead">Camisetas, oversize y sudaderas con ilustraciones originales, estampadas en España pedido a pedido y personalizables con el nombre que tú quieras.</p>
+            <span className="kicker">Colección 01 · Para la hinchada argentina en Europa</span>
+            <h1>Ropa con diseño propio para <em>los que saltan juntos.</em></h1>
+            <p className="lead">Camisetas, oversize y sudaderas con ilustraciones originales para ver los partidos lejos de casa. Estampadas en España pedido a pedido y personalizables con el nombre que tú quieras.</p>
             <div className="actions">
               <Link to="/personas" className="btn">Ver la colección</Link>
               <Link to="/personalizar" className="btn btn-ghost">Personalizar una prenda</Link>
@@ -40,7 +40,7 @@ export function Home() {
           </div>
           <div className="hero-art">
             <GarmentImage garment="hoodie" color="tinta" design="equipo" text="Equipo Tofu" placement="pecho" view="front" alt="Sudadera Equipo 02 en color tinta" className="hero-main" />
-            <GarmentImage garment="tee" color="mostaza" design="miYunta" text="Tofu" placement="pecho" view="front" alt="Camiseta Mi yunta en color mostaza" className="hero-side" />
+            <GarmentImage garment="tee" color="sol" design="hincha" text="Tofu" placement="pecho" view="front" alt="Camiseta Mi hincha nº 1 en color sol" className="hero-side" />
           </div>
         </div>
       </section>
@@ -48,10 +48,10 @@ export function Home() {
       <section className="section container brand-intro">
         <div>
           <span className="kicker">Qué es {BRAND.name}</span>
-          <h2>Una yunta son dos que avanzan al mismo paso.</h2>
+          <h2>Si no saltas, no vale. Y tu perro tampoco se queda quieto.</h2>
         </div>
         <div className="intro-points">
-          <p><strong>Diseño propio.</strong> Ilustraciones y tipografías creadas para la marca, nada de licencias ni imágenes de banco.</p>
+          <p><strong>Diseño propio.</strong> Ilustraciones y tipografías creadas para la marca: nada de escudos oficiales, licencias ni imágenes de banco.</p>
           <p><strong>Estampado en España.</strong> Imprimimos cada pedido con transfer DTF: tiradas cortas, sin stock muerto.</p>
           <p><strong>Personalizable.</strong> Nombre, equipo o tu frase sin coste de prenda adicional en los modelos marcados.</p>
         </div>
@@ -94,7 +94,7 @@ export function Home() {
             <p>El precio se calcula al momento: la personalización con texto cuesta 3 € en los modelos que no la incluyen.</p>
             <Link to="/personalizar" className="btn btn-light">Abrir el personalizador</Link>
           </div>
-          <GarmentImage garment="tee" color="hueso" design="ladoA" text="Tu nombre" placement="pecho" view="front" alt="Ejemplo de camiseta personalizada Lado A" className="band-art" />
+          <GarmentImage garment="tee" color="blanco" design="ladoA" text="Tu nombre" placement="pecho" view="front" alt="Ejemplo de camiseta personalizada Lado A" className="band-art" />
         </div>
       </section>
 
@@ -122,7 +122,7 @@ function Newsletter() {
   return (
     <section className="newsletter" id="newsletter" aria-labelledby="nl">
       <div className="container nl-inner">
-        <div><h2 id="nl">Únete a la yunta</h2><p>Novedades, preventas y un 10 % de bienvenida. Un email al mes, como mucho.</p></div>
+        <div><h2 id="nl">Súmate a la hinchada</h2><p>Novedades, preventas y un 10 % de bienvenida. Un email al mes, como mucho.</p></div>
         <form onSubmit={submit} className="nl-form" noValidate>
           <label htmlFor="nl-email" className="sr-only">Email</label>
           <input id="nl-email" type="email" placeholder="tu@email.com" value={email} onChange={(e) => setEmail(e.target.value)} required />

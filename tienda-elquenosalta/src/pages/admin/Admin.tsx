@@ -7,8 +7,8 @@ import { orderEconomics, salesByDay, summarize, topProducts, unitMargin } from '
 import { LineDescription } from '../../components/LineDescription';
 import type { Category, ColorId, DesignId, Garment, OrderStatus, Placement, Product, Settings, Size } from '../../lib/types';
 
-export const ADMIN_CODE = 'yunta2026';
-const SESSION_KEY = 'yunta-admin';
+export const ADMIN_CODE = 'salta2026';
+const SESSION_KEY = 'elquenosalta-admin';
 const LOW_STOCK = 2;
 const ALL_SIZES: Size[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL'];
 const STATUSES: OrderStatus[] = ['pendiente', 'en producción', 'enviado', 'entregado', 'cancelado'];
@@ -99,7 +99,7 @@ export function Dashboard() {
               const h = (d.total / max) * 160;
               return (
                 <g key={d.day}>
-                  <rect x={i * 20 + 2} y={180 - h} width={16} height={Math.max(h, 1)} rx={3} fill={d.total ? 'var(--teja)' : '#e6dfd2'}><title>{`${d.day}: ${money(d.total)}`}</title></rect>
+                  <rect x={i * 20 + 2} y={180 - h} width={16} height={Math.max(h, 1)} rx={3} fill={d.total ? 'var(--acento)' : '#e6dfd2'}><title>{`${d.day}: ${money(d.total)}`}</title></rect>
                 </g>
               );
             })}
@@ -150,7 +150,7 @@ function Kpi({ label, value, sub }: { label: string; value: string; sub: string 
 // ---------------- Productos ----------------
 const blank = (): Product => ({
   id: '', slug: '', name: '', category: 'camisetas', garment: 'tee', design: 'logo', placement: 'pecho', description: '', material: '100 % algodón', weight: 150,
-  fit: 'Corte clásico', care: 'Lavar del revés a 30 °C.', price: 24.9, cost: 5.5, colors: ['hueso'], sizes: ['S', 'M', 'L', 'XL'], textIncluded: false, preorder: false, active: true,
+  fit: 'Corte clásico', care: 'Lavar del revés a 30 °C.', price: 24.9, cost: 5.5, colors: ['blanco'], sizes: ['S', 'M', 'L', 'XL'], textIncluded: false, preorder: false, active: true,
   createdAt: new Date().toISOString().slice(0, 10),
 });
 

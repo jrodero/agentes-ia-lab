@@ -1,7 +1,7 @@
 export type Category = 'camisetas' | 'premium' | 'oversize' | 'sudaderas';
 export type Garment = 'tee' | 'over' | 'hoodie';
-export type ColorId = 'hueso' | 'tinta' | 'salvia' | 'mostaza' | 'teja';
-export type DesignId = 'paseo' | 'ladoA' | 'equipo' | 'miYunta' | 'logo' | 'texto';
+export type ColorId = 'blanco' | 'tinta' | 'celeste' | 'sol' | 'cancha';
+export type DesignId = 'paseo' | 'ladoA' | 'equipo' | 'hincha' | 'logo' | 'texto';
 export type Placement = 'pecho' | 'espalda';
 export type Size = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL' | '3XL';
 export type View = 'front' | 'back' | 'detail';

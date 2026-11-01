@@ -1,6 +1,6 @@
-# Tienda yunta — demo funcional (línea Personas)
+# Tienda «el que no salta» — demo funcional (línea Personas)
 
-Demo navegable de la tienda online de **yunta** (etapa 4 del proyecto, ver `../docs/marca-ropa-perros/`).
+Demo navegable de la tienda online de **el que no salta** (etapa 4 del proyecto, ver `../docs/marca-ropa-perros/`; la identidad está en `etapa-2b-marca-el-que-no-salta.md`). Público: comunidad argentina en España y Europa.
 Por decisión del proyecto, esta versión incluye **solo la ropa para personas**. La línea para perros y las colecciones coordinadas se añadirán más adelante.
 
 Hecha con **React 19 + TypeScript + Vite** y CSS propio, sin librerías de UI. **No hay pagos reales**: el checkout crea un pedido de demostración.
@@ -14,7 +14,7 @@ Capturas de la demo verificada en `capturas/`.
 ## Puesta en marcha
 
 ```bash
-cd tienda-yunta
+cd tienda-elquenosalta
 npm install
 npm run dev
 ```
@@ -29,7 +29,7 @@ Abre <http://localhost:5173>.
 | `npm test` | Pruebas unitarias (precios, descuentos, envío, estadísticas y seguridad del SVG) |
 | `npm run typecheck` | Solo la comprobación de tipos |
 
-**Panel de administración:** <http://localhost:5173/admin> · código de acceso de la demo: **`yunta2026`**.
+**Panel de administración:** <http://localhost:5173/admin> · código de acceso de la demo: **`salta2026`**.
 Es una barrera de demostración en el navegador, no una autenticación real.
 
 ## Qué incluye
@@ -49,14 +49,14 @@ Es una barrera de demostración en el navegador, no una autenticación real.
 
 ## Datos y persistencia
 
-- Todo se guarda en el `localStorage` del navegador (clave `yunta-demo-v1`): productos, inventario, pedidos, cesta, ajustes, suscriptores y mensajes.
+- Todo se guarda en el `localStorage` del navegador (clave `elquenosalta-demo-v1`): productos, inventario, pedidos, cesta, ajustes, suscriptores y mensajes.
 - Al abrir la demo por primera vez se cargan el catálogo de la colección 01 (9 referencias), un inventario de ejemplo y unos 26 pedidos de los últimos 30 días para que el panel tenga datos.
 - **Panel → «Restablecer datos de demo»** vuelve al estado inicial.
 - Precios con IVA. Los costes unitarios son los estimados en la etapa 3 (sin IVA): hay que actualizarlos en el panel cuando lleguen los presupuestos reales.
 
 ## Imágenes de producto
 
-Las «fotografías» son ilustraciones SVG generadas en `src/components/garmentSvg.ts` con la identidad de la etapa 2: cambian en tiempo real con el color, el diseño y el texto. Cuando haya fotos reales de las muestras, se pueden añadir como imágenes en la galería de la ficha.
+Las «fotografías» son ilustraciones SVG generadas en `src/components/garmentSvg.ts` con la identidad de la etapa 2b: cambian en tiempo real con el color, el diseño y el texto. Cuando haya fotos reales de las muestras, se pueden añadir como imágenes en la galería de la ficha.
 
 ## Estructura
 
@@ -76,7 +76,7 @@ public/brand, public/fonts  logotipos y tipografías (licencia OFL, ver docs/mar
 
 ## Cambiar el nombre de la marca
 
-El nombre, el lema, el hashtag y las rutas del logotipo están en `src/lib/brand.ts`. Los logotipos están en `public/brand/`. Algunos textos de la portada mencionan «yunta» por su significado: habría que revisarlos.
+El nombre, el lema, el hashtag y las rutas del logotipo están en `src/lib/brand.ts`. Los logotipos están en `public/brand/`. Los textos de la portada y de «Sobre nosotros» están escritos para esta marca: revísalos si cambia el nombre.
 
 ## Limitaciones conocidas (es una demo)
 

@@ -15,8 +15,8 @@ export function InfoPage() {
       title: `Sobre ${BRAND.name}`,
       body: (
         <>
-          <p className="lead">Una yunta son dos que avanzan al mismo paso. Hacemos ropa con diseño propio para quienes van por la vida acompañados.</p>
-          <p>Todos los diseños son originales. Estampamos cada pedido en España con transfer DTF, así no fabricamos de más ni acumulamos stock que acaba en la basura.</p>
+          <p className="lead">«El que no salta…» es el grito que nos une en cualquier cancha y en cualquier bar del mundo. Hacemos ropa con diseño propio para la comunidad argentina en España y en Europa, y para quienes saltan siempre acompañados, también por su perro.</p>
+          <p>Todos los diseños son originales y no usamos escudos, marcas ni camisetas oficiales. Estampamos cada pedido en España con transfer DTF, así no fabricamos de más ni acumulamos stock que acaba en la basura.</p>
           <p>Ahora mismo vendemos la línea <strong>Dos Patas</strong> (personas). La línea para perros está en fase de pruebas de patrón y tallas.</p>
         </>
       ),

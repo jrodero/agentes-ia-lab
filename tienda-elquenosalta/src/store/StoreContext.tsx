@@ -3,7 +3,7 @@ import { DEFAULT_SETTINGS, SEED_PRODUCTS, seedInventory, seedOrders } from '../d
 import { cartKey, computeTotals, unitPrice, type Totals } from '../lib/pricing';
 import type { CartItem, ColorId, Customer, Customization, Inventory, Order, OrderStatus, Product, Settings, Size } from '../lib/types';
 
-const STORAGE_KEY = 'yunta-demo-v1';
+const STORAGE_KEY = 'elquenosalta-demo-v1';
 
 export interface Message { id: string; name: string; email: string; text: string; createdAt: string }
 

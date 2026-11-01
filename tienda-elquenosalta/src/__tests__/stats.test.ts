@@ -6,7 +6,7 @@ import type { Order } from '../lib/types';
 const order = (total: number, cost: number, status: Order['status'] = 'entregado', createdAt = new Date().toISOString()): Order => ({
   id: 'YT-1', createdAt, status, subtotal: total, discount: 0, shipping: 0, total,
   customer: { name: 'A', email: 'a@b.es', address: 'x', city: 'y', zip: '28001' },
-  items: [{ productId: 'YT-P01', name: 'x', color: 'hueso', size: 'M', qty: 1, unitPrice: total, unitCost: cost }],
+  items: [{ productId: 'YT-P01', name: 'x', color: 'blanco', size: 'M', qty: 1, unitPrice: total, unitCost: cost }],
 });
 
 describe('estadísticas', () => {

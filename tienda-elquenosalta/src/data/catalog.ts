@@ -2,11 +2,11 @@ import type { Category, ColorId, DesignId, Garment, Inventory, Order, OrderStatu
 import { round2 } from '../lib/format';
 
 export const COLORS: Record<ColorId, { name: string; hex: string; dark: boolean }> = {
-  hueso: { name: 'Hueso', hex: '#F4EDE1', dark: false },
-  tinta: { name: 'Tinta', hex: '#1F2A44', dark: true },
-  salvia: { name: 'Salvia', hex: '#8FA67E', dark: false },
-  mostaza: { name: 'Mostaza', hex: '#E0A93B', dark: false },
-  teja: { name: 'Teja', hex: '#C85A35', dark: true },
+  blanco: { name: 'Blanco', hex: '#F6F3EC', dark: false },
+  tinta: { name: 'Azul noche', hex: '#1F2A44', dark: true },
+  celeste: { name: 'Celeste', hex: '#6CACE4', dark: false },
+  sol: { name: 'Sol', hex: '#F2B33D', dark: false },
+  cancha: { name: 'Verde cancha', hex: '#2F6B45', dark: true },
 };
 
 export const CATEGORIES: Record<Category, { name: string; blurb: string }> = {
@@ -20,8 +20,8 @@ export const DESIGNS: Record<DesignId, { name: string; blurb: string; takesText:
   paseo: { name: 'Paseo de domingo', blurb: 'Ilustración de línea: tú, tu perro y un corazón en la correa.', takesText: false },
   ladoA: { name: 'Lado A', blurb: 'Como un disco: tú eres la cara A. Lleva tu nombre debajo.', takesText: true, textLabel: 'Nombre' },
   equipo: { name: 'Equipo 02', blurb: 'Estilo universitario: tú eres el 02, el de las dos patas.', takesText: true, textLabel: 'Nombre del equipo' },
-  miYunta: { name: 'Mi yunta', blurb: '«mi yunta» con el nombre de quien te acompaña.', takesText: true, textLabel: 'Nombre' },
-  logo: { name: 'yunta club', blurb: 'Isotipo y wordmark de la marca, sobrio y limpio.', takesText: false },
+  hincha: { name: 'Mi hincha nº 1', blurb: '«mi hincha nº 1» con el nombre de quien te acompaña a todos los partidos.', takesText: true, textLabel: 'Nombre' },
+  logo: { name: 'El que no salta', blurb: 'El grito de la marca con la persona y el perro saltando.', takesText: false },
   texto: { name: 'Texto libre', blurb: 'Tu propia frase en tipografía Fraunces.', takesText: true, textLabel: 'Tu texto' },
 };
 
@@ -52,57 +52,57 @@ const FULL: Size[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 export const SEED_PRODUCTS: Product[] = [
   {
     id: 'YT-P01', slug: 'camiseta-paseo-de-domingo', name: 'Camiseta «Paseo de domingo»', category: 'camisetas', garment: 'tee', design: 'paseo', placement: 'pecho',
-    description: 'Nuestra ilustración de línea en el pecho: el paseo de cada domingo convertido en camiseta. Corte clásico y algodón de toda la vida.',
+    description: 'Nuestra ilustración de línea en el pecho: el paseo del domingo antes del partido. Corte clásico y algodón de toda la vida.',
     material: '100 % algodón, punto liso', weight: 145, fit: 'Corte clásico, talla habitual', care: CARE_TEE,
-    price: 24.9, cost: 5.53, colors: ['hueso', 'salvia', 'mostaza'], sizes: BASIC, textIncluded: false, preorder: false, active: true, createdAt: '2026-11-01',
+    price: 24.9, cost: 5.53, colors: ['blanco', 'celeste', 'sol'], sizes: BASIC, textIncluded: false, preorder: false, active: true, createdAt: '2026-11-01',
   },
   {
-    id: 'YT-P05', slug: 'camiseta-mi-yunta', name: 'Camiseta «Mi yunta» personalizada', category: 'camisetas', garment: 'tee', design: 'miYunta', placement: 'pecho',
-    description: '«mi yunta» en Fraunces cursiva y debajo el nombre que tú elijas. El nombre está incluido en el precio.',
+    id: 'YT-P05', slug: 'camiseta-mi-hincha', name: 'Camiseta «Mi hincha nº 1» personalizada', category: 'camisetas', garment: 'tee', design: 'hincha', placement: 'pecho',
+    description: '«mi hincha nº 1» en Fraunces cursiva y debajo el nombre de tu perro (o de quien tú quieras). El nombre está incluido en el precio.',
     material: '100 % algodón, punto liso', weight: 145, fit: 'Corte clásico, talla habitual', care: CARE_TEE,
-    price: 27.9, cost: 5.93, colors: ['mostaza', 'hueso', 'salvia'], sizes: BASIC, textIncluded: true, defaultText: 'Tofu', preorder: false, active: true, createdAt: '2026-11-01',
+    price: 27.9, cost: 5.93, colors: ['sol', 'blanco', 'celeste'], sizes: BASIC, textIncluded: true, defaultText: 'Tofu', preorder: false, active: true, createdAt: '2026-11-01',
   },
   {
-    id: 'YT-P06', slug: 'camiseta-yunta-club', name: 'Camiseta «yunta club»', category: 'camisetas', garment: 'tee', design: 'logo', placement: 'pecho',
-    description: 'El isotipo de la marca en el pecho. La básica que combina con todo.',
+    id: 'YT-P06', slug: 'camiseta-el-que-no-salta', name: 'Camiseta «El que no salta»', category: 'camisetas', garment: 'tee', design: 'logo', placement: 'pecho',
+    description: 'El grito de la marca en el pecho: la persona y el perro saltando. La básica para ver los partidos.',
     material: '100 % algodón, punto liso', weight: 145, fit: 'Corte clásico, talla habitual', care: CARE_TEE,
-    price: 22.9, cost: 4.93, colors: ['hueso', 'tinta', 'teja'], sizes: BASIC, textIncluded: false, preorder: false, active: true, createdAt: '2026-11-01',
+    price: 22.9, cost: 4.93, colors: ['blanco', 'tinta', 'cancha'], sizes: BASIC, textIncluded: false, preorder: false, active: true, createdAt: '2026-11-01',
   },
   {
     id: 'YT-P02', slug: 'camiseta-premium-lado-a', name: 'Camiseta premium «Lado A»', category: 'premium', garment: 'tee', design: 'ladoA', placement: 'pecho',
     description: 'Algodón orgánico de mayor gramaje con el diseño «Lado A» y tu nombre debajo. Su pareja es la «Lado B».',
     material: '100 % algodón orgánico, punto liso', weight: 180, fit: 'Corte recto unisex', care: CARE_TEE,
-    price: 32.9, cost: 9.27, colors: ['tinta', 'hueso'], sizes: FULL, textIncluded: true, defaultText: 'Lucía', preorder: false, active: true, createdAt: '2026-11-01',
+    price: 32.9, cost: 9.27, colors: ['tinta', 'blanco'], sizes: FULL, textIncluded: true, defaultText: 'Lucía', preorder: false, active: true, createdAt: '2026-11-01',
   },
   {
     id: 'YT-P07', slug: 'camiseta-premium-texto-libre', name: 'Camiseta premium con tu frase', category: 'premium', garment: 'tee', design: 'texto', placement: 'pecho',
     description: 'Escribe tu frase (hasta 14 caracteres) y la estampamos en tipografía Fraunces sobre algodón orgánico.',
     material: '100 % algodón orgánico, punto liso', weight: 180, fit: 'Corte recto unisex', care: CARE_TEE,
-    price: 32.9, cost: 9.37, colors: ['hueso', 'tinta', 'salvia'], sizes: FULL, textIncluded: true, defaultText: 'Dos patas', preorder: false, active: true, createdAt: '2026-11-01',
+    price: 32.9, cost: 9.37, colors: ['blanco', 'tinta', 'celeste'], sizes: FULL, textIncluded: true, defaultText: 'Dos patas', preorder: false, active: true, createdAt: '2026-11-01',
   },
   {
     id: 'YT-P03', slug: 'oversize-paseo-de-domingo', name: 'Oversize «Paseo de domingo»', category: 'oversize', garment: 'over', design: 'paseo', placement: 'espalda',
     description: 'Algodón pesado, hombro caído y la ilustración en grande en la espalda. En el pecho, el isotipo pequeño.',
     material: '100 % algodón, punto pesado', weight: 220, fit: 'Oversize: si prefieres un fit menos amplio, elige una talla menos', care: CARE_TEE,
-    price: 34.9, cost: 12.22, colors: ['salvia', 'hueso', 'tinta'], sizes: FULL, textIncluded: false, preorder: false, active: true, createdAt: '2026-11-01',
+    price: 34.9, cost: 12.22, colors: ['celeste', 'blanco', 'tinta'], sizes: FULL, textIncluded: false, preorder: false, active: true, createdAt: '2026-11-01',
   },
   {
     id: 'YT-P08', slug: 'oversize-equipo-02', name: 'Oversize «Equipo 02»', category: 'oversize', garment: 'over', design: 'equipo', placement: 'espalda',
     description: 'Dorsal estilo universitario en la espalda con el nombre de tu equipo. Tú eres el 02.',
     material: '100 % algodón, punto pesado', weight: 220, fit: 'Oversize: si prefieres un fit menos amplio, elige una talla menos', care: CARE_TEE,
-    price: 36.9, cost: 12.32, colors: ['tinta', 'hueso'], sizes: FULL, textIncluded: true, defaultText: 'Equipo Tofu', preorder: false, active: true, createdAt: '2026-11-01',
+    price: 36.9, cost: 12.32, colors: ['tinta', 'blanco'], sizes: FULL, textIncluded: true, defaultText: 'Equipo Tofu', preorder: false, active: true, createdAt: '2026-11-01',
   },
   {
     id: 'YT-P04', slug: 'sudadera-equipo-02', name: 'Sudadera «Equipo 02»', category: 'sudaderas', garment: 'hoodie', design: 'equipo', placement: 'pecho',
     description: 'Sudadera con capucha y el dorsal 02 en el pecho. Nombre del equipo personalizable. Se fabrica en preventa: envío en unas 3 semanas.',
     material: 'Felpa algodón/poliéster', weight: 280, fit: 'Corte regular con capucha y bolsillo canguro', care: CARE_HOODIE,
-    price: 49.9, cost: 14.15, colors: ['tinta', 'salvia'], sizes: FULL, textIncluded: true, defaultText: 'Equipo Tofu', preorder: true, active: true, createdAt: '2026-11-01',
+    price: 49.9, cost: 14.15, colors: ['tinta', 'celeste'], sizes: FULL, textIncluded: true, defaultText: 'Equipo Tofu', preorder: true, active: true, createdAt: '2026-11-01',
   },
   {
     id: 'YT-P09', slug: 'sudadera-paseo-de-domingo', name: 'Sudadera «Paseo de domingo»', category: 'sudaderas', garment: 'hoodie', design: 'paseo', placement: 'pecho',
     description: 'La ilustración del paseo en una sudadera para los días de frío. Se fabrica en preventa: envío en unas 3 semanas.',
     material: 'Felpa algodón/poliéster', weight: 280, fit: 'Corte regular con capucha y bolsillo canguro', care: CARE_HOODIE,
-    price: 49.9, cost: 14.15, colors: ['hueso', 'tinta', 'mostaza'], sizes: FULL, textIncluded: false, preorder: true, active: true, createdAt: '2026-11-01',
+    price: 49.9, cost: 14.15, colors: ['blanco', 'tinta', 'sol'], sizes: FULL, textIncluded: false, preorder: true, active: true, createdAt: '2026-11-01',
   },
 ];
 
