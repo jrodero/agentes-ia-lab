@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>yunta · Manual de identidad v1.0</title>
+<style>
+@font-face{font-family:Fraunces;src:url(fuentes/fraunces-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:Fraunces;src:url(fuentes/fraunces-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:Fraunces;src:url(fuentes/fraunces-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:'DM Sans';src:url(fuentes/dm-sans-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:'DM Sans';src:url(fuentes/dm-sans-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:'DM Sans';src:url(fuentes/dm-sans-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:'Space Mono';src:url(fuentes/space-mono-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:'Space Mono';src:url(fuentes/space-mono-latin-700-normal.woff2);font-weight:700}
+:root{--tinta:#1F2A44;--hueso:#F4EDE1;--teja:#C85A35;--salvia:#8FA67E;--mostaza:#E0A93B}
+*{box-sizing:border-box}
+body{margin:0;font-family:'DM Sans',sans-serif;color:var(--tinta);background:#fff;line-height:1.55;font-size:17px}
+h1,h2,h3{font-family:Fraunces,serif;font-weight:600;line-height:1.1;margin:0 0 .4em}
+h2{font-size:46px}h3{font-size:24px;margin-top:1.4em}
+.mono,.kicker{font-family:'Space Mono',monospace}
+.kicker{font-size:13px;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;display:block}
+section{padding:72px 8vw;border-bottom:1px solid #eee;page-break-after:always;break-after:page}
+.lead{font-size:21px;max-width:760px}
+.grid{display:grid;gap:24px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.tile{background:var(--hueso);border-radius:18px;padding:28px;display:flex;align-items:center;justify-content:center;min-height:200px;flex-direction:column;gap:10px}
+.tile.dark{background:var(--tinta);color:var(--hueso)}
+.tile small{font-family:'Space Mono',monospace;font-size:12px;opacity:.75}
+img.full{width:100%;border-radius:18px;display:block}
+table{border-collapse:collapse;width:100%;font-size:15px}td,th{border-bottom:1px solid #e6e1d8;padding:10px 8px;text-align:left;vertical-align:top}th{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+.do,.dont{border-radius:14px;padding:18px 20px}.do{background:#EAF0E4}.dont{background:#F8E3DA}
+.do b,.dont b{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px}
+.cover{min-height:92vh;background:var(--tinta);color:var(--hueso);display:flex;flex-direction:column;justify-content:space-between}
+.wrong{position:relative;background:var(--hueso);border-radius:14px;height:150px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wrong:after{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent 48.5%,var(--teja) 49%,var(--teja) 51%,transparent 51.5%)}
+.cap{font-size:13px;margin-top:8px}
+@page{size:A4 landscape;margin:12mm}
+@media print{body{font-size:13px}h2{font-size:30px}.lead{font-size:15px}section{padding:0;border:0}.cover{min-height:0;height:185mm;padding:14mm;border-radius:0}img.full{max-height:150mm;width:auto;max-width:100%;margin:0 auto;break-inside:avoid}.grid>*{break-inside:avoid}.tile{min-height:120px;padding:16px}table{font-size:12px}td,th{padding:5px 6px}.g3 img.full{max-height:95mm}}
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div class="mono" style="letter-spacing:4px;font-size:14px">MANUAL DE IDENTIDAD · v1.0 · NOVIEMBRE 2026</div>
+  <div>
+    <img src="logo/logo-vertical-negativo.svg" alt="Logotipo yunta" style="width:380px">
+    <h1 style="font-size:64px;margin-top:40px;max-width:900px">Hechos para <i style="font-weight:400;color:var(--mostaza)">ir juntos.</i></h1>
+    <p class="lead" style="opacity:.9">Ropa con diseño propio para personas y perros. Una sola marca, dos líneas y una colección que las une.</p>
+  </div>
+  <div class="mono" style="font-size:13px;opacity:.7">Documento interno. El nombre está pendiente de verificación registral (ver etapa-2-branding.md, sección 3).</div>
+</section>
+
+<section>
+  <span class="kicker">01 · Concepto</span>
+  <h2>Qué es una yunta</h2>
+  <p class="lead">Una <b>yunta</b> es una pareja que trabaja unida: dos que avanzan al mismo paso. En buena parte de Latinoamérica también significa «compañero inseparable». Eso es lo que hay entre una persona y su perro.</p>
+  <div class="grid g3" style="margin-top:30px">
+    <div class="tile"><b class="fr" style="font-family:Fraunces;font-size:24px">Personalidad</b><span style="text-align:center">Cercana, con humor amable y nunca infantil.</span></div>
+    <div class="tile"><b style="font-family:Fraunces;font-size:24px">Creatividad</b><span style="text-align:center">Ideas gráficas propias: Lado A/B, Equipo 02/04…</span></div>
+    <div class="tile"><b style="font-family:Fraunces;font-size:24px">Calidad</b><span style="text-align:center">Serif cuidada, paleta sobria y algodón de buen gramaje.</span></div>
+    <div class="tile"><b style="font-family:Fraunces;font-size:24px">Estilo</b><span style="text-align:center">Colores tierra, estética editorial y de streetwear suave.</span></div>
+    <div class="tile"><b style="font-family:Fraunces;font-size:24px">Conexión</b><span style="text-align:center">Siempre dos elementos que forman uno.</span></div>
+    <div class="tile dark"><b style="font-family:Fraunces;font-size:24px">Promesa</b><span style="text-align:center">«Ropa a juego para ti y tu perro, con vuestros nombres.»</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="kicker">02 · Logotipo</span>
+  <h2>Versiones del logotipo</h2>
+  <p>El logotipo combina el <b>isotipo</b> (dos figuras que se unen en un solo trazo) con el <b>wordmark</b> «yunta» en Fraunces SemiBold, en minúsculas y con el texto convertido a trazados. La versión principal es la horizontal.</p>
+  <div class="grid g2">
+    <div class="tile"><img src="logo/logo-horizontal.svg" style="width:80%"><small>Principal · horizontal</small></div>
+    <div class="tile dark"><img src="logo/logo-horizontal-negativo.svg" style="width:80%"><small>Negativo · sobre tinta</small></div>
+    <div class="tile"><img src="logo/logo-vertical.svg" style="width:45%"><small>Vertical · packaging y cartelería</small></div>
+    <div class="tile"><img src="logo/logo-horizontal-monocromo.svg" style="width:80%"><small>Monocromo · bordado, serigrafía 1 tinta</small></div>
+  </div>
+  <h3>Área de seguridad y tamaños mínimos</h3>
+  <table>
+    <tr><th>Elemento</th><th>Área de seguridad</th><th>Mínimo impreso</th><th>Mínimo en pantalla</th></tr>
+    <tr><td>Logotipo horizontal</td><td>Alto de la «u» en todo el contorno</td><td>25 mm de ancho</td><td>100 px de ancho</td></tr>
+    <tr><td>Wordmark solo</td><td>Alto de la «u»</td><td>18 mm (impreso) · 25 mm (bordado)</td><td>64 px</td></tr>
+    <tr><td>Isotipo</td><td>25 % de su ancho</td><td>6 mm</td><td>16 px (favicon)</td></tr>
+  </table>
+  <h3>Usos incorrectos</h3>
+  <div class="grid g4">
+    <div><div class="wrong"><img src="logo/logo-horizontal.svg" style="width:70%;transform:scaleX(1.5)"></div><div class="cap">No deformar</div></div>
+    <div><div class="wrong"><img src="logo/logo-horizontal.svg" style="width:70%;filter:hue-rotate(160deg) saturate(3)"></div><div class="cap">No cambiar los colores</div></div>
+    <div><div class="wrong"><img src="logo/logo-horizontal.svg" style="width:70%;transform:rotate(-14deg)"></div><div class="cap">No girar</div></div>
+    <div><div class="wrong" style="background:repeating-linear-gradient(90deg,#8FA67E 0 14px,#E0A93B 14px 28px)"><img src="logo/logo-horizontal.svg" style="width:70%"></div><div class="cap">No usar sobre fondos con poco contraste</div></div>
+  </div>
+</section>
+
+<section>
+  <span class="kicker">03 · Isotipo</span>
+  <h2>Dos que se hacen uno</h2>
+  <div class="grid g2" style="align-items:center">
+    <div>
+      <p>Dos trazos se unen en uno, como la letra Y y como una yunta: a la izquierda una persona (cabeza redonda) y a la derecha un perro (cabeza con oreja caída). Es geométrico, se entiende a 16 px y se puede bordar.</p>
+      <ul>
+        <li>Funciona como favicon, foto de perfil, botón, parche bordado y pegatina.</li>
+        <li>El perro lleva el color de acento: el perro es el protagonista de la marca.</li>
+        <li>Versión en placa (cuadrado redondeado) para app, redes y parches.</li>
+        <li>Es un dibujo original creado para este proyecto, no una huella ni un perro genérico de banco de imágenes.</li>
+      </ul>
+    </div>
+    <div class="grid g2">
+      <div class="tile"><img src="logo/isotipo.svg" style="width:60%"><small>Color</small></div>
+      <div class="tile dark"><img src="logo/isotipo-negativo.svg" style="width:60%"><small>Negativo</small></div>
+      <div class="tile" style="background:#fff;border:1px solid #eee"><img src="logo/isotipo-badge.svg" style="width:60%"><small>Placa tinta</small></div>
+      <div class="tile" style="background:#fff;border:1px solid #eee"><img src="logo/isotipo-badge-teja.svg" style="width:60%"><small>Placa teja</small></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="kicker">04 · Arquitectura de marca</span>
+  <h2>Una marca, tres etiquetas</h2>
+  <p class="lead">No son dos negocios. Las líneas comparten logotipo, tipografía y paleta, y se distinguen solo por una etiqueta de color.</p>
+  <div class="grid" style="gap:18px;margin-top:20px">
+    <div class="tile" style="align-items:flex-start;min-height:auto"><img src="logo/linea-dos-patas.svg" style="height:70px"><span><b>Dos Patas</b> · personas: camisetas, sudaderas, oversize y prendas personalizadas.</span></div>
+    <div class="tile" style="align-items:flex-start;min-height:auto"><img src="logo/linea-cuatro-patas.svg" style="height:70px"><span><b>Cuatro Patas</b> · perros: camisetas, sudaderas, abrigos ligeros, prendas personalizadas y accesorios textiles.</span></div>
+    <div class="tile" style="align-items:flex-start;min-height:auto"><img src="logo/linea-juntos.svg" style="height:70px"><span><b>Juntos</b> · colección coordinada persona + perro. Es el producto estrella y el que define la marca.</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="kicker">05 · Color</span>
+  <h2>Paleta cromática</h2>
+  <img class="full" src="logo/paleta.png" alt="Paleta">
+  <p class="mono" style="font-size:12px">* Los valores CMYK son una aproximación inicial: hay que ajustarlos con la imprenta sobre el papel real (kraft o estucado). Para las prendas, pedir el equivalente Pantone TCX al proveedor textil.</p>
+  <h3>Reglas de contraste (WCAG)</h3>
+  <table>
+    <tr><th>Combinación</th><th>Contraste</th><th>Uso</th></tr>
+    <tr><td>Tinta sobre Hueso</td><td>12,25:1</td><td>Cualquier texto. Combinación principal.</td></tr>
+    <tr><td>Tinta sobre Mostaza</td><td>6,73:1</td><td>Cualquier texto.</td></tr>
+    <tr><td>Tinta sobre Salvia</td><td>5,38:1</td><td>Cualquier texto.</td></tr>
+    <tr><td>Hueso sobre Teja / Teja sobre Hueso</td><td>3,63:1</td><td>Solo texto grande (≥ 24 px o ≥ 19 px en negrita), botones y etiquetas.</td></tr>
+    <tr><td>Hueso sobre Salvia</td><td>2,28:1</td><td><b>No usar para texto.</b></td></tr>
+  </table>
+  <p>Proporción orientativa: 60 % hueso, 25 % tinta, 15 % acentos (teja, salvia, mostaza). Mostaza se reserva para detalles y para ediciones de temporada.</p>
+</section>
+
+<section>
+  <span class="kicker">06 · Tipografía</span>
+  <h2>Tres familias, licencia libre</h2>
+  <img class="full" src="logo/tipografias.png" alt="Tipografías">
+  <p>Las tres tienen licencia SIL Open Font License 1.1: uso comercial libre, también en web y en prendas (los archivos de licencia están en <span class="mono">fuentes/</span>). Si no están disponibles, usar Georgia en lugar de Fraunces y Arial en lugar de DM Sans.</p>
+</section>
+
+<section>
+  <span class="kicker">07 · Tono de voz</span>
+  <h2>Cómo habla yunta</h2>
+  <p>Español cercano, tuteando, sin voseo ni diminutivos excesivos. Con humor amable y frases cortas. Hablamos de «tu perro», no de «tu peludito bebé».</p>
+  <div class="grid g2">
+    <div class="do"><b>SÍ</b><br>«Tú eres el 02. Tu perro, el 04. Mismo equipo.»<br>«Personaliza con vuestros nombres en un minuto.»<br>«Estampado en España, pedido a pedido.»</div>
+    <div class="dont"><b>NO</b><br>«¡¡Los perrhijos más cuquis del universo!!»<br>«La mejor calidad del mercado garantizada.»<br>Promesas de bienestar animal no demostradas.</div>
+  </div>
+  <h3>Bienestar animal en la comunicación</h3>
+  <p>Prendas ligeras, fáciles de poner y quitar, y siempre con una guía de medidas. No mostramos perros incómodos ni con la ropa forzada. Es una decisión de marca, no solo estética.</p>
+</section>
+
+<section>
+  <span class="kicker">08 · Línea Dos Patas (personas)</span>
+  <h2>Camisetas, sudaderas, oversize y personalizadas</h2>
+  <img class="full" src="mockups/personas.png" alt="Mockups personas">
+</section>
+
+<section>
+  <span class="kicker">09 · Línea Cuatro Patas (perros)</span>
+  <h2>Camisetas, sudaderas, abrigos, personalizadas y accesorios</h2>
+  <img class="full" src="mockups/animales.png" alt="Mockups animales">
+  <p>Tallas caninas de referencia (pendientes de validar con las muestras del proveedor): XS, S, M, L y XL, medidas por <b>largo de espalda</b> y <b>contorno de pecho</b>. Bandanas en S, M y L por contorno de cuello.</p>
+</section>
+
+<section>
+  <span class="kicker">10 · Colección Juntos · Cápsula 01</span>
+  <h2>Cuatro diseños a juego</h2>
+  <div class="grid" style="gap:28px">
+    <img class="full" src="mockups/coleccion-juntos-lado-a-b.png" alt="Lado A / Lado B">
+    <img class="full" src="mockups/coleccion-juntos-equipo.png" alt="Equipo 02 / 04">
+    <img class="full" src="mockups/coleccion-juntos-paseo.png" alt="Paseo de domingo">
+    <img class="full" src="mockups/coleccion-juntos-mi-yunta.png" alt="Mi yunta">
+  </div>
+</section>
+
+<section>
+  <span class="kicker">11 · Packaging</span>
+  <h2>Caja, sobre y funda</h2>
+  <div class="grid" style="gap:28px"><img class="full" src="packaging/caja-envio.png" alt="Caja"><img class="full" src="packaging/sobre-y-funda.png" alt="Sobre"></div>
+  <p>Materiales: cartón y papel kraft reciclado, impresión a una tinta (tinta) para abaratar costes y sin plásticos de un solo uso. La pegatina teja de cierre basta para que un sobre neutro parezca de marca, así que al principio se pueden usar sobres lisos con pegatina.</p>
+</section>
+
+<section>
+  <span class="kicker">12 · Etiquetas</span>
+  <h2>Del cuello al colgante</h2>
+  <img class="full" src="packaging/etiquetas.png" alt="Etiquetas">
+  <p>La etiqueta de composición debe cumplir el Reglamento (UE) 1007/2011 en las prendas para personas: denominación de la fibra y porcentaje, en castellano en España. Los símbolos de cuidado (lavado, secado, planchado) pertenecen a un sistema registrado por GINETEX. En España lo gestiona COFREET: hay que consultar sus condiciones de uso antes de imprimirlos.</p>
+</section>
+
+<section>
+  <span class="kicker">13 · Instagram y TikTok</span>
+  <h2>Aplicaciones en redes</h2>
+  <img class="full" src="redes/perfil-y-destacadas.png" alt="Perfil">
+  <div class="grid g3" style="margin-top:24px;align-items:start">
+    <div><img class="full" src="redes/instagram-post-lanzamiento.png" alt=""><div class="cap">Post 4:5 · lanzamiento de producto</div></div>
+    <div><img class="full" src="redes/instagram-post-yunta-del-mes.png" alt=""><div class="cap">Post 4:5 · «La yunta del mes» (foto de cliente)</div></div>
+    <div><img class="full" src="redes/instagram-post-frase.png" alt=""><div class="cap">Post 1:1 · frase de marca</div></div>
+    <div><img class="full" src="redes/instagram-story.png" alt=""><div class="cap">Story 9:16 · producto + llamada a la acción</div></div>
+    <div><img class="full" src="redes/tiktok-portada.png" alt=""><div class="cap">Portada de TikTok 9:16 · con zonas seguras</div></div>
+    <div class="tile" style="align-items:flex-start"><b style="font-family:Fraunces;font-size:22px">Formatos de contenido</b><span>1. <b>Del taller</b>: estampando packs (proceso).<br>2. <b>¿Quién es quién?</b>: revelar Lado A / Lado B.<br>3. <b>La yunta del mes</b>: contenido de clientes.<br>4. <b>Guía de tallas en 30 s</b>: medir al perro.<br>5. <b>Antes del paseo</b>: humor cotidiano.</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="kicker">14 · Tienda online</span>
+  <h2>La identidad en la web</h2>
+  <img class="full" src="mockups/tienda-online.png" alt="Tienda online">
+  <p>Es solo una referencia de cómo se aplica la identidad. El diseño y el desarrollo de la web corresponden a la etapa siguiente.</p>
+</section>
+
+</body>
+</html>
