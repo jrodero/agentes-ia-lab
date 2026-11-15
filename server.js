@@ -34,6 +34,7 @@ import {
 } from "./bot-core.js";
 import { guardarLead } from "./leads.js";
 import { buildMigrationResponseRequest, formatMigrationReply } from "./migration-agent.js";
+import { firmaValida, procesarWebhook, verificarWebhook } from "./instagram-bot.js";
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -57,7 +58,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.json());
+app.use(
+  express.json({
+    verify: (req, res, buf) => {
+      req.rawBody = buf;
+    },
+  })
+);
 app.use(express.static(path.join(__dirname, "public")));
 
 const sessions = {};
@@ -443,6 +450,30 @@ app.post("/api/community/checklist/toggle", requireCommunityAuth, (req, res) => 
 
   const checklist = toggleChecklist(req.communityUser, key);
   res.json({ checklist });
+});
+
+// Webhook de Instagram (@mequieroir): verificación de Meta y eventos de DMs/comentarios.
+app.get("/api/instagram/webhook", (req, res) => {
+  const challenge = verificarWebhook(req.query);
+  if (challenge === null) {
+    return res.sendStatus(403);
+  }
+  res.type("text/plain").send(String(challenge));
+});
+
+app.post("/api/instagram/webhook", (req, res) => {
+  if (!firmaValida(req.rawBody, req.get("x-hub-signature-256"))) {
+    return res.sendStatus(401);
+  }
+
+  // Meta pide responder rápido; el envío de mensajes sigue en segundo plano.
+  res.sendStatus(200);
+
+  procesarWebhook(req.body, {
+    onLead: (lead) => guardarLead({ fecha: new Date().toISOString(), ...lead }),
+  }).catch((error) => {
+    console.error("Error en webhook de Instagram:", error.message);
+  });
 });
 
 app.listen(PORT, () => {
