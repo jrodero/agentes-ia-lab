@@ -15,6 +15,7 @@ El servidor queda disponible en `http://localhost:4000` por defecto.
 
 - `/` landing principal con asistente y reserva
 - `/rutas/` beta web con login local, comunidad, rutas, checklist y bitácora
+- `/api/instagram/webhook` automatización de Instagram (@mequieroir) por palabra clave. Configuración y kit de contenido en `docs/instagram-mequieroir.md`
 
 ## Pruebas
 

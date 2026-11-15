@@ -1,4 +1,5 @@
 import { spawn } from "child_process";
+import crypto from "crypto";
 import fs from "fs";
 import path from "path";
 
@@ -116,6 +117,9 @@ const server = spawn("node", ["server.js"], {
     PORT: port,
     AUTH_FILE: authFile,
     COMMUNITY_FILE: communityFile,
+    INSTAGRAM_VERIFY_TOKEN: "verify-prueba",
+    INSTAGRAM_APP_SECRET: "secreto-prueba",
+    INSTAGRAM_ACCESS_TOKEN: "",
   },
   stdio: ["ignore", "pipe", "pipe"],
 });
@@ -312,6 +316,45 @@ try {
   ];
 
   const results = [];
+
+  // Webhook de Instagram: verificación y firma.
+  const igBody = JSON.stringify({ object: "instagram", entry: [] });
+  const igFirma =
+    "sha256=" + crypto.createHmac("sha256", "secreto-prueba").update(igBody).digest("hex");
+  const igChecks = [
+    {
+      path: "/api/instagram/webhook?hub.mode=subscribe&hub.verify_token=verify-prueba&hub.challenge=42",
+      expected: 200,
+      validate: (text) => (text === "42" ? "" : "No devolvió el challenge."),
+    },
+    { path: "/api/instagram/webhook?hub.mode=subscribe&hub.verify_token=malo&hub.challenge=42", expected: 403 },
+    { method: "POST", path: "/api/instagram/webhook", body: igBody, signature: "sha256=00", expected: 401 },
+    { method: "POST", path: "/api/instagram/webhook", body: igBody, signature: igFirma, expected: 200 },
+  ];
+
+  for (const check of igChecks) {
+    const method = check.method || "GET";
+    try {
+      const response = await fetch(`${baseUrl}${check.path}`, {
+        method,
+        headers: check.body
+          ? { "Content-Type": "application/json", "X-Hub-Signature-256": check.signature }
+          : {},
+        body: check.body,
+      });
+      const text = await response.text();
+      const problem =
+        response.status !== check.expected
+          ? `ERROR ${response.status} (esperado ${check.expected})`
+          : check.validate?.(text) || "";
+      results.push({
+        ok: !problem,
+        line: formatLine(!problem, method, check.path.split("?")[0], problem || `${response.status}`),
+      });
+    } catch (error) {
+      results.push({ ok: false, line: formatError(method, check.path, error) });
+    }
+  }
 
   for (const check of checks) {
     const resolvedBody = typeof check.body === "function" ? check.body() : check.body;
